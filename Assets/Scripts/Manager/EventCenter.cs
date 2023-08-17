@@ -207,7 +207,7 @@ public class EventCenter
         {
             if (value is EventInfo<T> eventInfo)
             {
-                eventInfo.Actions += action;
+                eventInfo.Actions -= action;
             }
             else
             {
@@ -233,7 +233,7 @@ public class EventCenter
         {
             if (value is EventInfo<T, X> eventInfo)
             {
-                eventInfo.Actions += action;
+                eventInfo.Actions -= action;
             }
             else
             {
@@ -260,7 +260,7 @@ public class EventCenter
         {
             if (value is EventInfo<T, X, Y> eventInfo)
             {
-                eventInfo.Actions += action;
+                eventInfo.Actions -= action;
             }
             else
             {
