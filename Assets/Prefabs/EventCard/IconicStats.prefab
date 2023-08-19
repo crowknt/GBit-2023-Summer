@@ -84,6 +84,7 @@ MonoBehaviour:
   intelligenceHighlight: {fileID: 7485564480291362831}
   virtueHighlight: {fileID: 1956996335194840018}
   healthHighlight: {fileID: 5413057267549119621}
+  abilityData: {fileID: 11400000, guid: 7524ebdf77182c741a8ac69e39bd154b, type: 2}
 --- !u!1 &2016712565245615258
 GameObject:
   m_ObjectHideFlags: 0

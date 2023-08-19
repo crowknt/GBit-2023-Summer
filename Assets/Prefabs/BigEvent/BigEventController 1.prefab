@@ -732,7 +732,7 @@ GameObject:
   - component: {fileID: 8970890790472486642}
   - component: {fileID: 6697115719295275454}
   m_Layer: 5
-  m_Name: BigEventController
+  m_Name: BigEventController 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

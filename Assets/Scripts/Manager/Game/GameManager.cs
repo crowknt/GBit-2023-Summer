@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
         }
         
         EventCenter.Instance.AddListener<int,int,int>("AbilityDataChange",AbilityDataChange);
+        DontDestroyOnLoad(gameObject);
     }
 
     private void AbilityDataChange(int intelligenceChange, int virtueChange, int bodyChange)
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour
         abilityData.virtue += virtueChange;
         abilityData.body += bodyChange;
 
-        //ensure all the values are in the range of (0,100)
+        // //ensure all the values are in the range of (0,100)
         abilityData.intelligence = abilityData.intelligence switch
         {
             <= 0 => 0,

@@ -10,6 +10,7 @@ public class IconicStats : MonoBehaviour
     [SerializeField] private Image intelligenceHighlight;
     [SerializeField] private Image virtueHighlight;
     [SerializeField] private Image healthHighlight;
+    [SerializeField] private PlayerAbilityData abilityData;
 
     public float Intelligence
     {
@@ -53,5 +54,50 @@ public class IconicStats : MonoBehaviour
         IntelligenceHighlighted = false;
         VirtueHighlighted = false;
         HealthHighlighted = false;
+    }
+
+    private void Awake()
+    {
+        EventCenter.Instance.AddListener("SliderFillChange",SliderFillChange);
+        EventCenter.Instance.AddListener("IntelligenceHighlight",IntelligenceHighlight);
+        EventCenter.Instance.AddListener("VirtueHighlight",VirtueHighlight);
+        EventCenter.Instance.AddListener("BodyHighlight",BodyHighlight);
+        EventCenter.Instance.AddListener("ClearHighlights",ClearHighlights);
+    }
+
+    private void Start()
+    {
+        SliderFillChange();
+    }
+
+    private void SliderFillChange()
+    {
+        Intelligence = (float)abilityData.intelligence;
+        Virtue = (float)abilityData.virtue;
+        Health = (float)abilityData.body;
+    }
+
+    private void IntelligenceHighlight()
+    {
+        IntelligenceHighlighted = true;
+    }
+
+    private void VirtueHighlight()
+    {
+        VirtueHighlighted = true;
+    }
+
+    private void BodyHighlight()
+    {
+        HealthHighlighted = true;
+    }
+
+    private void OnDestroy()
+    {
+        EventCenter.Instance.RemoveEventListener("SliderFillChange",SliderFillChange);
+        EventCenter.Instance.RemoveEventListener("IntelligenceHighlight",IntelligenceHighlight);
+        EventCenter.Instance.RemoveEventListener("VirtueHighlight",VirtueHighlight);
+        EventCenter.Instance.RemoveEventListener("BodyHighlight",BodyHighlight);
+        EventCenter.Instance.RemoveEventListener("ClearHighlights",ClearHighlights);
     }
 }
