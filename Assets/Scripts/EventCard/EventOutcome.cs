@@ -21,5 +21,6 @@ public class EventOutcome : MonoBehaviour
         //todo switch to next event
         //EventCenter.Instance.EventTrigger("TestResetEvent");
         EventCenter.Instance.EventTrigger("NextSmallEvent");
+        EventCenter.Instance.EventTrigger("CloseTextAbilityStatus");
     }
 }
