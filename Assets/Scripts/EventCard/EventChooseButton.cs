@@ -13,8 +13,10 @@ public class EventChooseButton : MonoBehaviour,IPointerEnterHandler,IPointerExit
     private Button _button;
 
     private void Awake()
-    { 
+    {
+        _button = GetComponent<Button>();
         
+        _button.onClick.AddListener(OnEventButtonDown);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -58,6 +60,8 @@ public class EventChooseButton : MonoBehaviour,IPointerEnterHandler,IPointerExit
 
     public void OnEventButtonDown()
     {
-        //todo: switch to the outcome
+        //todo: change value
+        
+        EventCenter.Instance.EventTrigger<int,int,int>("AbilityDataChange",intelligenceChange,virtueChange,bodyChange);
     }
 }

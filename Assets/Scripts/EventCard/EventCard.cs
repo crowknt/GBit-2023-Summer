@@ -17,16 +17,9 @@ public class EventCard : MonoBehaviour
     private void Awake()
     {
         
-
-        if (leftButton.onClick.GetPersistentEventCount() == 0)
-        {
-            leftButton.onClick.AddListener(OnLeftButtonDown);
-        }
-
-        if (rightButton.onClick.GetPersistentEventCount() == 0)
-        {
-            rightButton.onClick.AddListener(OnRightButtonDown);
-        }
+        leftButton.onClick.AddListener(OnLeftButtonDown);
+        rightButton.onClick.AddListener(OnRightButtonDown);
+        
         leftOutcome.gameObject.SetActive(false);
         rightOutcome.gameObject.SetActive(false);
         eventCard.SetActive(true);

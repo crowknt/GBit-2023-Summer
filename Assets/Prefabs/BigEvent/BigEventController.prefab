@@ -817,6 +817,7 @@ MonoBehaviour:
   bigEvent: {fileID: 6007028972992338530}
   yesOutcome: {fileID: 833783241957765657}
   noOutcome: {fileID: 7747251843128961595}
+  abilityData: {fileID: 11400000, guid: 7524ebdf77182c741a8ac69e39bd154b, type: 2}
 --- !u!1 &4762668262883327237
 GameObject:
   m_ObjectHideFlags: 0
