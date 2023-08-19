@@ -300,7 +300,7 @@ MonoBehaviour:
   m_text: "\u4EBA\u751F\u7684\u4F11\u606F\u65E5"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2c505924e089392429965ea4f298d818, type: 2}
-  m_sharedMaterial: {fileID: 5940447277107246627, guid: 2c505924e089392429965ea4f298d818, type: 2}
+  m_sharedMaterial: {fileID: -1163260944111018309, guid: 2c505924e089392429965ea4f298d818, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
