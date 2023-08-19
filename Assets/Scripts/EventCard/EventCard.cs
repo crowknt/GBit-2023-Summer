@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class EventCard : MonoBehaviour
 {
     [SerializeField] private GameObject eventCard;
-    [SerializeField] private GameObject leftOutcome;
-    [SerializeField] private GameObject rightOutcome;
+    [SerializeField] private EventOutcome leftOutcome;
+    [SerializeField] private EventOutcome rightOutcome;
     [Header("选项")]
     [SerializeField] private Button leftButton;
     [SerializeField] private Button rightButton;
@@ -27,8 +27,8 @@ public class EventCard : MonoBehaviour
         {
             rightButton.onClick.AddListener(OnRightButtonDown);
         }
-        leftOutcome.SetActive(false);
-        rightOutcome.SetActive(false);
+        leftOutcome.gameObject.SetActive(false);
+        rightOutcome.gameObject.SetActive(false);
         eventCard.SetActive(true);
         
     }
@@ -42,7 +42,7 @@ public class EventCard : MonoBehaviour
     {
         Debug.Log("left button down");
         eventCard.SetActive(false);
-        leftOutcome.SetActive(true);
+        leftOutcome.gameObject.SetActive(true);
         //todo switch to left outcome
     }
 
@@ -51,13 +51,13 @@ public class EventCard : MonoBehaviour
         Debug.Log("right button down");
         //todo switch to right outcome
         eventCard.SetActive(false);
-        rightOutcome.SetActive(true);
+        rightOutcome.gameObject.SetActive(true);
     }
 
     private void TestResetEvent()
     {
-        leftOutcome.SetActive(false);
-        rightOutcome.SetActive(false);
+        leftOutcome.gameObject.SetActive(false);
+        rightOutcome.gameObject.SetActive(false);
         eventCard.SetActive(true);
     }
 
