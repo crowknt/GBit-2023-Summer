@@ -6,9 +6,9 @@ using UnityEngine.UI;
 
 public class EventOutcome : MonoBehaviour
 {
-    [SerializeField] private Button nextButton;
+    [SerializeField] protected Button nextButton;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         if (nextButton.onClick.GetPersistentEventCount() == 0)
         {
@@ -16,9 +16,10 @@ public class EventOutcome : MonoBehaviour
         }
     }
 
-    public void OnNextButtonDown()
+    public virtual void OnNextButtonDown()
     {
         //todo switch to next event
-        EventCenter.Instance.EventTrigger("TestResetEvent");
+        //EventCenter.Instance.EventTrigger("TestResetEvent");
+        EventCenter.Instance.EventTrigger("NextSmallEvent");
     }
 }
