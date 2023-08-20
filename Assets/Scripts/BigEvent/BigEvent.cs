@@ -24,6 +24,7 @@ namespace BigEvent
         [Header("数据")] [SerializeField] protected PlayerAbilityData abilityData;
         [SerializeField] private AudioClip clip;
 
+        
         private BigEventData _bigEventData;
         protected virtual void Awake()
         {
@@ -58,10 +59,12 @@ namespace BigEvent
                 //不通过
                 
                 noOutcome.gameObject.SetActive(true);
+                noOutcome.RunPrinter();
                 return;
             }
             //通过
             yesOutcome.gameObject.SetActive(true);
+            yesOutcome.RunPrinter();
         }
 
         public void UpdateBigEventData(BigEventData newData)
@@ -73,11 +76,37 @@ namespace BigEvent
             bodyCondition = newData.bodyCondition;
 
             img.sprite = newData.image;
-            info.text = newData.info;
+            _printContent = newData.info;
+            //info.text = newData.info;
+            info.text = "";
+            PrintText(_printContent,info);
             buttonText.text = newData.buttonText;
             
             yesOutcome.UpdateOutcomeInfo(newData.yesOutcome);
             noOutcome.UpdateOutcomeInfo(newData.noOutcome);
+        }
+
+        [Header("打字特效")] [SerializeField] private float printSpeed = 15;
+        private string _printContent;
+        private void PrintText(string textToPrint, TextMeshProUGUI textLabel)
+        {
+            StartCoroutine(PrintTextRoutine(textToPrint, textLabel));
+        }
+
+        IEnumerator PrintTextRoutine(string textToPrint, TextMeshProUGUI textLabel)
+        {
+            float t = 0;
+            int charIndex = 0;
+            while (charIndex < textToPrint.Length)
+            {
+                t += Time.deltaTime * printSpeed;
+                charIndex = Mathf.FloorToInt(t);//把t转为int类型赋值给charIndex
+                charIndex = Mathf.Clamp(charIndex, 0, textToPrint.Length);
+                textLabel.text = textToPrint.Substring(0, charIndex);
+
+                yield return null;
+            }
+            textLabel.text = textToPrint;
         }
     }
 
