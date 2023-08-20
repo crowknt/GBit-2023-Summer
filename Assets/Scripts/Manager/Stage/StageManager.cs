@@ -54,12 +54,14 @@ namespace Manager.Stage
             EventCenter.Instance.AddListener<string>("SpecialEnd",SmallOutcomeButtonSpecial);
             EventCenter.Instance.AddListener("NormalEnd",NormalEnd);
             EventCenter.Instance.AddListener("ShowTextStatus",ShowTextStatus);
+            EventCenter.Instance.AddListener("LoseEnd",LoseEnd);
 
             _textualStats = textAbilityStatus.GetComponent<TextualStats>();
         }
 
         private void Start()
         {
+            GameManager.Instance.UpdateStageCount(stageCount);
             _curEventCardInfo = eventData.eventCardInfos[0];
             _currentEventIndex = 0;
             _remainingEvents = eventData.eventCardInfos.Count - 1;
@@ -122,6 +124,7 @@ namespace Manager.Stage
             EventCenter.Instance.RemoveEventListener<string>("SpecialEnd",SmallOutcomeButtonSpecial);
             EventCenter.Instance.RemoveEventListener("NormalEnd",NormalEnd);
             EventCenter.Instance.RemoveEventListener("ShowTextStatus",ShowTextStatus);
+            EventCenter.Instance.RemoveEventListener("LoseEnd",LoseEnd);
         }
 
         public void ShowTextAbilityStatus()
@@ -166,6 +169,12 @@ namespace Manager.Stage
             Debug.Log("大事件end event");
             _gameOverPop = Instantiate(gameOverPop, transform);
             _gameOverPop.ShowConclusion();
+        }
+
+        public void LoseEnd()
+        {
+            _gameOverPop = Instantiate(gameOverPop, transform);
+            _gameOverPop.LosePop();
         }
     }
 }
