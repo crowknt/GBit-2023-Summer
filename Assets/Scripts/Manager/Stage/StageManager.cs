@@ -20,12 +20,14 @@ namespace Manager.Stage
         [FormerlySerializedAs("textAbilityUI")] [Header("文字属性显示")] [SerializeField] private GameObject textAbilityStatus;
         [Header("属性数据")] [SerializeField] private PlayerAbilityData abilityData;
 
+        [SerializeField, Header("结局弹窗")] private GameOverPopupController gameOverPop;
 
         private EventData.EventCardInfo _curEventCardInfo;
         private int _currentEventIndex = 0;
         private int _remainingEvents = 0;
         private BigEvent.BigEvent _bigEvent;
         private TextualStats _textualStats;
+        private GameOverPopupController _gameOverPop;
         private void Awake()
         {
             //todo add event change event
@@ -101,7 +103,8 @@ namespace Manager.Stage
 
         public void SmallOutcomeButtonSpecial(string specialText)
         {
-            
+            _gameOverPop = Instantiate(gameOverPop, transform);
+            _gameOverPop.SpecialEndTextChange(specialText);
         }
     }
 }
