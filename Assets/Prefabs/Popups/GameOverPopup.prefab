@@ -203,6 +203,7 @@ MonoBehaviour:
   goodVirtue: "\u5584\u826F"
   goodHealth: "\u5065\u5EB7"
   playerAbilityData: {fileID: 11400000, guid: 7524ebdf77182c741a8ac69e39bd154b, type: 2}
+  textualStats: {fileID: 1882392404784790648}
 --- !u!1 &8281189917873495646
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,6 +735,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9fdebac33719b74c92d2511b3f7d394, type: 3}
+--- !u!114 &1882392404784790648 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1132517395465156570, guid: c9fdebac33719b74c92d2511b3f7d394, type: 3}
+  m_PrefabInstance: {fileID: 1560527477752826786}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3e4bb2d42229f242b066b354d9cbef1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &7358720157527347927 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8338264659679058293, guid: c9fdebac33719b74c92d2511b3f7d394, type: 3}

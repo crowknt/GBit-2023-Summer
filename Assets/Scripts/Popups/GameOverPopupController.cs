@@ -14,6 +14,7 @@ public class GameOverPopupController : MonoBehaviour
     [SerializeField] private string goodVirtue = "";
     [SerializeField] private string goodHealth = "";
     [SerializeField] private PlayerAbilityData playerAbilityData;
+    [SerializeField] private TextualStats textualStats;
 
     private bool _isSpecial = false;
     private string _specialText;
@@ -23,8 +24,15 @@ public class GameOverPopupController : MonoBehaviour
         ShowConclusion();
     }
 
+    public void Update()
+    {
+        textualStats.ChangeText(playerAbilityData.intelligence,playerAbilityData.virtue,playerAbilityData.body);
+    }
+
     public void ShowConclusion()
     {
+        
+        
         List<Tuple<int, int>> stats = new()
         {
             new Tuple<int, int>(0, playerAbilityData.intelligence),
@@ -45,7 +53,7 @@ public class GameOverPopupController : MonoBehaviour
                 break;
         }
 
-        if (_isSpecial == true)
+        if (_isSpecial)
         {
             conclusion.text = _specialText;
         }
@@ -59,6 +67,7 @@ public class GameOverPopupController : MonoBehaviour
 
     private void ReturnToTitle()
     {
+        
         SoundManager.StopBackgroundMusic();
         SceneManager.LoadScene("Title");
     }

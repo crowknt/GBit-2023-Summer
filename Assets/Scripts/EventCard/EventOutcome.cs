@@ -13,6 +13,8 @@ public class EventOutcome : MonoBehaviour
     [SerializeField] protected Image image;
     [SerializeField] protected TextMeshProUGUI info;
     [SerializeField] protected TextMeshProUGUI buttonText;
+
+    [SerializeField] private AudioClip clip;
     // [SerializeField] protected StageManager stageManager;
 
     private bool isSpecial = false;
@@ -28,14 +30,21 @@ public class EventOutcome : MonoBehaviour
 
     public virtual void OnNextButtonDown()
     {
+        if (clip != null)
+        {
+            SoundManager.PlaySoundEffect(clip);
+        }
+        
         //todo switch to next event
         //EventCenter.Instance.EventTrigger("TestResetEvent");
         if (isSpecial)
         {
-            Debug.Log("特殊事件");
+            //Debug.Log("特殊事件");
             EndEvent(_specialText);
             return;
         }
+
+        
         
         EventCenter.Instance.EventTrigger("NextSmallEvent");
         

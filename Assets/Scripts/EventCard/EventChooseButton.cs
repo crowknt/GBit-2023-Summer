@@ -13,6 +13,7 @@ public class EventChooseButton : MonoBehaviour,IPointerEnterHandler,IPointerExit
     private int bodyChange = 0;
     private Button _button;
     [SerializeField] private TextMeshProUGUI buttonText;
+    [SerializeField] private AudioClip clip;
 
     private void Awake()
     {
@@ -47,10 +48,17 @@ public class EventChooseButton : MonoBehaviour,IPointerEnterHandler,IPointerExit
 
     public void OnEventButtonDown()
     {
-        EventCenter.Instance.EventTrigger<int,int,int>("AbilityDataChange",intelligenceChange,virtueChange,bodyChange);
+        if (clip != null)
+        {
+            SoundManager.PlaySoundEffect(clip);
+        }
+        //EventCenter.Instance.EventTrigger<int,int,int>("AbilityDataChange",intelligenceChange,virtueChange,bodyChange);
+        GameManager.Instance.AbilityDataChange(intelligenceChange,virtueChange,bodyChange);
         EventCenter.Instance.EventTrigger("SliderFillChange");
         EventCenter.Instance.EventTrigger("ShowWeekday");
         EventCenter.Instance.EventTrigger("ShowTextAbilityStatus");
+        EventCenter.Instance.EventTrigger("ClearHighlights");
+        
     }
 
     public void InitialValueChangeData(int intelligence,int virtue,int body)
