@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void AbilityDataChange(int intelligenceChange, int virtueChange, int bodyChange)
+    public void AbilityDataChange(int intelligenceChange, int virtueChange, int bodyChange)
     {
         abilityData.intelligence += intelligenceChange;
         abilityData.virtue += virtueChange;
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         {
             <= 0 => 0,
             > 100 => 100,
-            _ => abilityData.virtue
+            _ => abilityData.body
         };
         
     }

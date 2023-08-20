@@ -51,4 +51,11 @@ public class TextualStats : MonoBehaviour
             healthText.text = String.Format(format, value);
         }
     }
+
+    public void ChangeText(int newIntelligence, int newVirtue, int newBody)
+    {
+        Intelligence = newIntelligence;
+        Virtue = newVirtue;
+        Health = newBody;
+    }
 }

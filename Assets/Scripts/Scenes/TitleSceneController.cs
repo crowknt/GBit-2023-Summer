@@ -9,6 +9,8 @@ public class TitleSceneController : MonoBehaviour
     [SerializeField] private Canvas canvas;
     [SerializeField] private GameObject creditsPopup;
     [SerializeField] private AudioClip backgroundMusic;
+    [SerializeField] private PlayerAbilityData playerAbilityData;
+    [SerializeField] private string firsetStage;
 
     private void Start()
     {
@@ -16,11 +18,15 @@ public class TitleSceneController : MonoBehaviour
         buttonCredits.OnClick = ShowCredits;
         buttonQuitGame.OnClick = QuitGame;
         SoundManager.SwitchBackgroundMusic(backgroundMusic);
+        
     }
 
     private void StartNewGame()
     {
-        SceneManager.LoadScene("Game_flf");
+        playerAbilityData.intelligence = 0;
+        playerAbilityData.virtue = 0;
+        playerAbilityData.body = 0;
+        SceneManager.LoadScene(firsetStage);
     }
 
     private void ShowCredits()

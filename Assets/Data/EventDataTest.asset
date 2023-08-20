@@ -20,8 +20,8 @@ MonoBehaviour:
     info: "\u6D4B\u8BD5"
     outcomeInfoL:
       intelligence: 0
-      virtue: 10
-      body: 10
+      virtue: 0
+      body: 0
       image: {fileID: 0}
       info: "\u5DE6\u7ED3\u679C"
       chooseButtonText: yes
@@ -29,9 +29,9 @@ MonoBehaviour:
       isEndEvent: 0
       specialEndText: 
     outcomeInfoR:
-      intelligence: 5
+      intelligence: 0
       virtue: 0
-      body: 5
+      body: 1
       image: {fileID: 0}
       info: "\u53F3\u7ED3\u679C"
       chooseButtonText: no
@@ -43,9 +43,9 @@ MonoBehaviour:
     image: {fileID: 0}
     info: "\u6D4B\u8BD52"
     outcomeInfoL:
-      intelligence: 0
-      virtue: 10
-      body: 10
+      intelligence: 1
+      virtue: 0
+      body: 0
       image: {fileID: 0}
       info: "\u5DE6\u7ED3\u679C"
       chooseButtonText: yes
@@ -53,9 +53,9 @@ MonoBehaviour:
       isEndEvent: 1
       specialEndText: "\u7279\u6B8A\u7ED3\u5C40\u6D4B\u8BD5"
     outcomeInfoR:
-      intelligence: 5
-      virtue: 0
-      body: 5
+      intelligence: 0
+      virtue: 1
+      body: 0
       image: {fileID: 0}
       info: "\u53F3\u7ED3\u679C"
       chooseButtonText: no
@@ -68,8 +68,8 @@ MonoBehaviour:
     info: "\u6D4B\u8BD53"
     outcomeInfoL:
       intelligence: 0
-      virtue: 10
-      body: 10
+      virtue: 1
+      body: 1
       image: {fileID: 0}
       info: "\u5DE6\u7ED3\u679C"
       chooseButtonText: yes
@@ -77,9 +77,9 @@ MonoBehaviour:
       isEndEvent: 0
       specialEndText: 
     outcomeInfoR:
-      intelligence: 5
-      virtue: 0
-      body: 5
+      intelligence: 1
+      virtue: 1
+      body: 0
       image: {fileID: 0}
       info: "\u53F3\u7ED3\u679C"
       chooseButtonText: no

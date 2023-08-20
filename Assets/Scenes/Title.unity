@@ -528,6 +528,8 @@ MonoBehaviour:
   canvas: {fileID: 920551985}
   creditsPopup: {fileID: 5826739678922906135, guid: f40bba30203364840b0b2c3387995602, type: 3}
   backgroundMusic: {fileID: 8300000, guid: 26e88605b5d60f047984f4881106f280, type: 3}
+  playerAbilityData: {fileID: 11400000, guid: 7524ebdf77182c741a8ac69e39bd154b, type: 2}
+  firsetStage: Stage0
 --- !u!1 &1322566855
 GameObject:
   m_ObjectHideFlags: 0

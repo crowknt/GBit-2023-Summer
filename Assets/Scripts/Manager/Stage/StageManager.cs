@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using BigEvent;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 namespace Manager.Stage
@@ -11,16 +12,20 @@ namespace Manager.Stage
     {
         [SerializeField,Tooltip("关卡序号")] private int stageCount = 0;
         [SerializeField, Tooltip("关卡名")] private string stageName = "";
-        [SerializeField] private string nextStageName = "";
+        [SerializeField] private string nextStageName = "空";
         [Header("事件数据")] [SerializeField] private EventData eventData;
         [SerializeField] private EventCard _eventCard;
         
+        [Header("大事件")]
         [SerializeField] private BigEvent.BigEvent bigEvent;
 
+        [SerializeField] private BigEventData bigEventData;
+        
         [FormerlySerializedAs("textAbilityUI")] [Header("文字属性显示")] [SerializeField] private GameObject textAbilityStatus;
         [Header("属性数据")] [SerializeField] private PlayerAbilityData abilityData;
 
         [SerializeField, Header("结局弹窗")] private GameOverPopupController gameOverPop;
+        
 
         private EventData.EventCardInfo _curEventCardInfo;
         private int _currentEventIndex = 0;
@@ -36,6 +41,7 @@ namespace Manager.Stage
             EventCenter.Instance.AddListener("CloseTextAbilityStatus",CloseTextAbilityStatus);
             EventCenter.Instance.AddListener("ShowTextAbilityStatus",ShowTextAbilityStatus);
             EventCenter.Instance.AddListener<string>("SpecialEnd",SmallOutcomeButtonSpecial);
+            EventCenter.Instance.AddListener("NormalEnd",NormalEnd);
 
             _textualStats = textAbilityStatus.GetComponent<TextualStats>();
         }
@@ -57,6 +63,7 @@ namespace Manager.Stage
             {
                 _eventCard.gameObject.SetActive(false);
                 _bigEvent = Instantiate(bigEvent, transform);
+                _bigEvent.UpdateBigEventData(bigEventData);
                 return;
             }
 
@@ -71,7 +78,12 @@ namespace Manager.Stage
         private void NextStage()
         {
             //todo change scene to next stage
-            Debug.Log("下一关");
+            if (nextStageName == "空")
+            {
+                return;
+            }
+
+            SceneManager.LoadScene(nextStageName, LoadSceneMode.Single);
         }
 
         private void OnDestroy()
@@ -80,6 +92,8 @@ namespace Manager.Stage
             EventCenter.Instance.RemoveEventListener("NextStage",NextStage);
             EventCenter.Instance.RemoveEventListener("CloseTextAbilityStatus",CloseTextAbilityStatus);
             EventCenter.Instance.RemoveEventListener("ShowTextAbilityStatus",ShowTextAbilityStatus);
+            EventCenter.Instance.RemoveEventListener<string>("SpecialEnd",SmallOutcomeButtonSpecial);
+            EventCenter.Instance.RemoveEventListener("NormalEnd",NormalEnd);
         }
 
         private void ShowTextAbilityStatus()
@@ -105,6 +119,13 @@ namespace Manager.Stage
         {
             _gameOverPop = Instantiate(gameOverPop, transform);
             _gameOverPop.SpecialEndTextChange(specialText);
+        }
+
+        public void NormalEnd()
+        {
+            Debug.Log("大事件end event");
+            _gameOverPop = Instantiate(gameOverPop, transform);
+            _gameOverPop.ShowConclusion();
         }
     }
 }
