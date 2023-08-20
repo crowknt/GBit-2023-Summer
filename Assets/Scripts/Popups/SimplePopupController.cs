@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CreditsPopupController : MonoBehaviour
+public class SimplePopupController : MonoBehaviour
 {
     [SerializeField] private GButton buttonClose;
 
