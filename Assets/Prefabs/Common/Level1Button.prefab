@@ -269,4 +269,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 1342888467521234972}
-  clickSound: {fileID: 8300000, guid: 07af2aeef59c8114f930a0fc06ccc5e2, type: 3}
+  clickSound: {fileID: 8300000, guid: 13db1e820da8b31478c02151c028e28f, type: 3}
