@@ -32,10 +32,11 @@ namespace BigEvent
             if (_isEnd)
             {
                 //todo 呼出结束窗口
+                FadeOutEffect();
                 EventCenter.Instance.EventTrigger("NormalEnd");
                 return;
             }
-
+            FadeOutEffect();
             //todo 下一关
             EventCenter.Instance.EventTrigger("NextStage");
         }
@@ -81,6 +82,16 @@ namespace BigEvent
         public void RunPrinter()
         {
             PrintText(_printContent,info);
+        }
+
+        public void FadeInEffect()
+        {
+            
+        }
+
+        public void FadeOutEffect()
+        {
+            
         }
     }
 }

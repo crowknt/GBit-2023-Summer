@@ -57,13 +57,19 @@ namespace BigEvent
                 abilityData.body < bodyCondition)
             {
                 //不通过
+                FadeOutEffect();
                 
                 noOutcome.gameObject.SetActive(true);
+                
+                noOutcome.FadeInEffect();
                 noOutcome.RunPrinter();
                 return;
             }
             //通过
+            FadeOutEffect();
+            
             yesOutcome.gameObject.SetActive(true);
+            yesOutcome.FadeInEffect();
             yesOutcome.RunPrinter();
         }
 
@@ -107,6 +113,24 @@ namespace BigEvent
                 yield return null;
             }
             textLabel.text = textToPrint;
+        }
+
+        public void FadeInEffect()
+        {
+            
+        }
+
+        public void FadeOutEffect()
+        {
+            
+        }
+
+        /// <summary>
+        /// 大事件是先实例化，所以考虑先隐藏
+        /// </summary>
+        public void HideOnInstantiate()
+        {
+            
         }
     }
 

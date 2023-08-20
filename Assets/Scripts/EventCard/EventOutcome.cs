@@ -42,6 +42,7 @@ public class EventOutcome : MonoBehaviour
         if (isSpecial)
         {
             //Debug.Log("特殊事件");
+            FadeOutEffect();
             EndEvent(_specialText);
             return;
         }
@@ -83,7 +84,7 @@ public class EventOutcome : MonoBehaviour
         
         
         yield return new WaitForSeconds(0.2f);
-        
+        FadeOutEffect();
         _stageManager.smallEventState = StageManager.SmallEventState.Card;
         EventCenter.Instance.EventTrigger("NextSmallEvent");
        
@@ -116,5 +117,20 @@ public class EventOutcome : MonoBehaviour
     {
         PrintText(_printContent,info);
     }
-    
+
+    /// <summary>
+    /// 事件结果的按钮没有特别的逻辑（鼠标高亮事件），所以没有分开。按钮的引用都在这里
+    /// </summary>
+    public void FadeInEffect()
+    {
+        
+    }
+
+    /// <summary>
+    /// 特殊结局时应该没特别问题。普通情况下在协程DelayedSwitch里调用（我已经调了），协程的延迟用于避免额外的按钮触发
+    /// </summary>
+    public void FadeOutEffect()
+    {
+        
+    }
 }

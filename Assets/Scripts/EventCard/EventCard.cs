@@ -41,22 +41,32 @@ public class EventCard : MonoBehaviour
 
     private void Start()
     {
-        
+        HideOnInstantiate();
     }
 
+    /// <summary>
+    /// 此处，
+    /// </summary>
     public void OnLeftButtonDown()
     {
+        FadeOutEffect();
+        
         eventCard.SetActive(false);
         leftOutcome.gameObject.SetActive(true);
+        leftOutcome.FadeInEffect();
         leftOutcome.RunPrinter();
-        //todo switch to left outcome
+        
+        
     }
 
     public void OnRightButtonDown()
     {
-        //todo switch to right outcome
+        FadeOutEffect();
+        
+        
         eventCard.SetActive(false);
         rightOutcome.gameObject.SetActive(true);
+        rightOutcome.FadeInEffect();
         rightOutcome.RunPrinter();
     }
 
@@ -75,6 +85,9 @@ public class EventCard : MonoBehaviour
             newInfo.outcomeInfoR.body,newInfo.outcomeInfoR.chooseButtonText);
         
        ChangeCardInfo(newInfo.image,newInfo.info);
+       
+       FadeInEffect();
+       
        PrintText(_printContent,info);
        
        
@@ -117,17 +130,37 @@ public class EventCard : MonoBehaviour
         textLabel.text = textToPrint;
     }
     
+    //!!!!
+    
+    //动效添加注意：
+    //leftButton二者是休息日页面的按钮，_leftButtonScript是对应的按钮上绑的脚本
+    //可能需要添加协程等
+    //每个方法预设情况都是，内容已经更新完毕，执行完特效再显示出来
+    
     /// <summary>
-    /// 工作日切换至休息日的动效，从无到有
+    /// 工作日切换至休息日的动效，从无到有。
+    /// 会在每个新的scene自动执行第一次，所以大事件到小事件的后半部分动效通用此
     /// </summary>
-    private void NextSmallEventEffect()
+    private void FadeInEffect()
     {
+        //请见对应脚本
+        _leftButtonScript.FadeInEffect();
+        _rightButtonScript.FadeInEffect();
         
     }
     /// <summary>
     /// 休息日到对应工作日的动效，从有到无
     /// </summary>
-    private void SwitchToOutcomeEffect()
+    private void FadeOutEffect()
+    {
+        _leftButtonScript.FadeOutEffect();
+        _rightButtonScript.FadeOutEffect();
+    }
+
+    /// <summary>
+    /// 进入新scene时确保事件卡未显示出来
+    /// </summary>
+    private void HideOnInstantiate()
     {
         
     }

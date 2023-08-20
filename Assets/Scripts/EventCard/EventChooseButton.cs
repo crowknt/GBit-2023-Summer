@@ -25,6 +25,11 @@ public class EventChooseButton : MonoBehaviour,IPointerEnterHandler,IPointerExit
         _stageManager = GetComponentInParent<StageManager>();
     }
 
+    private void Start()
+    {
+        HideOnInstantiate();
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         
@@ -49,6 +54,9 @@ public class EventChooseButton : MonoBehaviour,IPointerEnterHandler,IPointerExit
         EventCenter.Instance.EventTrigger("ClearHighlights");
     }
 
+    /// <summary>
+    /// 页面切换不在此处，此处仅含高亮，ui内容更新，和数值更新
+    /// </summary>
     public void OnEventButtonDown()
     {
         if (_stageManager.smallEventState == StageManager.SmallEventState.Outcome)
@@ -84,5 +92,29 @@ public class EventChooseButton : MonoBehaviour,IPointerEnterHandler,IPointerExit
         virtueChange = newVirtue;
         bodyChange = newBody;
         buttonText.text = newText;
+    }
+    
+    //!!!
+    //
+
+    /// <summary>
+    /// 切换到工作日时的淡出
+    /// </summary>
+    public void FadeOutEffect()
+    {
+        
+    }
+
+    /// <summary>
+    /// 切换到休息日时的淡入
+    /// </summary>
+    public void FadeInEffect()
+    {
+        
+    }
+
+    public void HideOnInstantiate()
+    {
+        
     }
 }

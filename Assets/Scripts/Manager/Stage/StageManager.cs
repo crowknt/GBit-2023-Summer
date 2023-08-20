@@ -91,6 +91,8 @@ namespace Manager.Stage
                 _eventCard.gameObject.SetActive(false);
                 _bigEvent = Instantiate(bigEvent, transform);
                 _bigEvent.UpdateBigEventData(bigEventData);
+                bigEvent.HideOnInstantiate();
+                _bigEvent.FadeInEffect();
                 return;
             }
 
