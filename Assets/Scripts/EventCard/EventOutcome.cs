@@ -54,7 +54,7 @@ public class EventOutcome : MonoBehaviour
         {
             return;
         }
-        Debug.Log("特殊事件初始化");
+       
         isSpecial = newOutcome.isEndEvent;
         _specialText = newOutcome.specialEndText;
     }
