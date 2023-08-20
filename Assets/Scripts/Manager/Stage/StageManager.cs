@@ -12,27 +12,19 @@ namespace Manager.Stage
         [SerializeField,Tooltip("关卡序号")] private int stageCount = 0;
         [SerializeField, Tooltip("关卡名")] private string stageName = "";
         [SerializeField] private string nextStageName = "";
-        [SerializeField] private List<EventCard> eventCards;
+        [Header("事件数据")] [SerializeField] private EventData eventData;
+        [SerializeField] private EventCard _eventCard;
+        
         [SerializeField] private BigEvent.BigEvent bigEvent;
 
         [FormerlySerializedAs("textAbilityUI")] [Header("文字属性显示")] [SerializeField] private GameObject textAbilityStatus;
         [Header("属性数据")] [SerializeField] private PlayerAbilityData abilityData;
 
-        public int EventCount
-        {
-            get
-            {
-                if (eventCards == null)
-                {
-                    return 0;
-                }
 
-                return eventCards.Count;
-            }
-        }
-
+        private EventData.EventCardInfo _curEventCardInfo;
         private EventCard _currentEvent;
         private int _currentEventIndex = 0;
+        private int _remainingEvents = 0;
         private BigEvent.BigEvent _bigEvent;
         private TextualStats _textualStats;
         private void Awake()
@@ -48,43 +40,16 @@ namespace Manager.Stage
 
         private void Start()
         {
-            _currentEvent = Instantiate(eventCards[0], transform);
-            EventCenter.Instance.EventTrigger<int>("ShowRemainingDaysOff",eventCards.Count);
+            _curEventCardInfo = eventData.eventCardInfos[0];
+            _currentEventIndex = 0;
+            _remainingEvents = eventData.eventCardInfos.Count;
             EventCenter.Instance.EventTrigger("ClearHighlights");
             CloseTextAbilityStatus();
         }
 
         private void NextSmallEvent()
         {
-            if (eventCards == null)
-            {
-                return;
-            }
             
-            if (EventCount == 1)
-            {
-                
-                
-                //进行大事件检定
-                if (bigEvent != null)
-                {
-                    _bigEvent = Instantiate(bigEvent, transform);
-                }
-                
-                //清除当前事件
-                Destroy(_currentEvent.gameObject);
-                _currentEvent = null;
-                //eventCards.Remove(eventCards[0]);
-                EventCenter.Instance.EventTrigger<int>("ShowRemainingDaysOff",0);
-                
-                
-                
-                return;
-            }
-            Destroy(_currentEvent.gameObject);
-            _currentEvent = Instantiate(eventCards[1], transform);
-            eventCards.Remove(eventCards[0]);
-            EventCenter.Instance.EventTrigger<int>("ShowRemainingDaysOff",eventCards.Count);
 
         }
 

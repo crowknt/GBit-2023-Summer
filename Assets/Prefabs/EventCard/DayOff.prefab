@@ -277,7 +277,7 @@ MonoBehaviour:
   m_text: Right
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2c505924e089392429965ea4f298d818, type: 2}
-  m_sharedMaterial: {fileID: 5940447277107246627, guid: 2c505924e089392429965ea4f298d818, type: 2}
+  m_sharedMaterial: {fileID: -1163260944111018309, guid: 2c505924e089392429965ea4f298d818, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -545,7 +545,7 @@ MonoBehaviour:
   m_text: Test Event info
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2c505924e089392429965ea4f298d818, type: 2}
-  m_sharedMaterial: {fileID: 5940447277107246627, guid: 2c505924e089392429965ea4f298d818, type: 2}
+  m_sharedMaterial: {fileID: -1163260944111018309, guid: 2c505924e089392429965ea4f298d818, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -679,7 +679,7 @@ MonoBehaviour:
   m_text: Left
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2c505924e089392429965ea4f298d818, type: 2}
-  m_sharedMaterial: {fileID: 5940447277107246627, guid: 2c505924e089392429965ea4f298d818, type: 2}
+  m_sharedMaterial: {fileID: -1163260944111018309, guid: 2c505924e089392429965ea4f298d818, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -837,6 +837,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextButton: {fileID: 4764186611627126505}
+  image: {fileID: 0}
+  info: {fileID: 0}
+  buttonText: {fileID: 0}
 --- !u!1 &6113420527667357144
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,12 +896,9 @@ MonoBehaviour:
   rightOutcome: {fileID: 4282260748790707062}
   leftButton: {fileID: 5240356036022272333}
   rightButton: {fileID: 780012329140144053}
-  leftIntelligence: 0
-  leftVirtue: 0
-  leftBody: 0
-  rightIntelligence: 0
-  rightVirtue: 0
-  rightBody: 0
+  eventData: {fileID: 11400000, guid: dccf71d41be7d0c43808e1d1c1655b16, type: 2}
+  image: {fileID: 2866455295115665775}
+  info: {fileID: 715685729728547316}
 --- !u!1 &7152564349093687736
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,6 +1154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f4c99141cb73d74c84d42e98cb24399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonText: {fileID: 0}
 --- !u!1 &7574173617192430128
 GameObject:
   m_ObjectHideFlags: 0
@@ -1363,6 +1364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f4c99141cb73d74c84d42e98cb24399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonText: {fileID: 0}
 --- !u!1 &8831065024193176408
 GameObject:
   m_ObjectHideFlags: 0

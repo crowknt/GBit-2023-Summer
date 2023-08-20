@@ -1,27 +1,30 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class EventCard : MonoBehaviour
 {
+    [Header("显示的物体")]
     [SerializeField] private GameObject eventCard;
     [SerializeField] private EventOutcome leftOutcome;
     [SerializeField] private EventOutcome rightOutcome;
     [Header("选项")]
     [SerializeField] private Button leftButton;
     [SerializeField] private Button rightButton;
-    [Header("左按钮数值")] [SerializeField] private int leftIntelligence = 0;
-    [SerializeField] private int leftVirtue = 0;
-    [SerializeField] private int leftBody = 0;
-    [Header("右按钮数值")][SerializeField] private int rightIntelligence = 0;
-    [SerializeField] private int rightVirtue = 0;
-    [SerializeField] private int rightBody = 0;
+    [Header("数值")] [SerializeField] private EventData eventData;
+
+    [Header("事件的显示模块")] [SerializeField] private Image image;
+    [SerializeField] private TextMeshProUGUI info;
+    
 
 
     private EventChooseButton _leftButtonScript;
     private EventChooseButton _rightButtonScript;
+
+    private EventData.EventCardInfo _currentEventCardInfo;
     private void Awake()
     {
         
@@ -38,10 +41,7 @@ public class EventCard : MonoBehaviour
 
     private void Start()
     {
-        EventCenter.Instance.AddListener("TestResetEvent",TestResetEvent);
         
-        _leftButtonScript.InitialValueChangeData(leftIntelligence,leftVirtue,leftBody);
-        _rightButtonScript.InitialValueChangeData(rightIntelligence,rightVirtue,rightBody);
     }
 
     public void OnLeftButtonDown()
@@ -59,12 +59,22 @@ public class EventCard : MonoBehaviour
         rightOutcome.gameObject.SetActive(true);
     }
 
-    private void TestResetEvent()
+    public void ResetEvent(Sprite newImg, string newInfo)
     {
+        ChangeCardInfo(newImg,newInfo);
         leftOutcome.gameObject.SetActive(false);
         rightOutcome.gameObject.SetActive(false);
         eventCard.SetActive(true);
     }
 
-    
+    public void ChangeButtonInfo()
+    {
+        
+    }
+
+    public void ChangeCardInfo(Sprite newImg, string newInfo)
+    {
+        image.sprite = newImg;
+        info.text = newInfo;
+    }
 }
