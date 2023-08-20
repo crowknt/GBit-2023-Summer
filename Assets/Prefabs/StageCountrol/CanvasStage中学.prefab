@@ -285,6 +285,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 313ee21e38c5af74e85496328481a153, type: 2}
     - target: {fileID: 6814371738698829426, guid: 2a886579aef7a594cb0d370ee71f68dc, type: 3}
+      propertyPath: stageCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6814371738698829426, guid: 2a886579aef7a594cb0d370ee71f68dc, type: 3}
       propertyPath: bigEventData
       value: 
       objectReference: {fileID: 11400000, guid: 31327a8ba84c3674499bebdf3bf54936, type: 2}

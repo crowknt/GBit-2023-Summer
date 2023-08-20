@@ -15,9 +15,11 @@ public class GameOverPopupController : MonoBehaviour
     [SerializeField] private string goodHealth = "";
     [SerializeField] private PlayerAbilityData playerAbilityData;
     [SerializeField] private TextualStats textualStats;
-
+    [SerializeField] private string loseFormat = "{0}";
+    
     private bool _isSpecial = false;
     private string _specialText;
+    private bool _isLose = false;
     private void Start()
     {
         buttonReturnToTitle.OnClick = ReturnToTitle;
@@ -57,12 +59,41 @@ public class GameOverPopupController : MonoBehaviour
         {
             conclusion.text = _specialText;
         }
+
+        if (_isLose)
+        {
+            LoseEndText();
+        }
     }
 
     public void SpecialEndTextChange(string specialText)
     {
         _specialText = specialText;
         _isSpecial = true;
+    }
+
+    public void LosePop()
+    {
+        _isLose = true;
+    }
+
+    private void LoseEndText()
+    {
+        if (playerAbilityData.intelligence == 0)
+        {
+            conclusion.text = String.Format(loseFormat, goodIntelligence);
+        }
+        if (playerAbilityData.virtue == 0)
+        {
+            conclusion.text = String.Format(loseFormat, goodVirtue);
+        }
+
+        if (playerAbilityData.body == 0)
+        {
+            conclusion.text = String.Format(loseFormat, goodHealth);
+        }
+
+        _isLose = false;
     }
 
     private void ReturnToTitle()

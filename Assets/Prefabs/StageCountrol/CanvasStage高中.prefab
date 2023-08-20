@@ -194,7 +194,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3971684260961232498, guid: 2a886579aef7a594cb0d370ee71f68dc, type: 3}
       propertyPath: m_Name
-      value: CanvasStageTest Variant
+      value: "CanvasStage\u9AD8\u4E2D"
       objectReference: {fileID: 0}
     - target: {fileID: 4848001217647785578, guid: 2a886579aef7a594cb0d370ee71f68dc, type: 3}
       propertyPath: m_AnchorMax.y
@@ -280,6 +280,10 @@ PrefabInstance:
       propertyPath: eventData
       value: 
       objectReference: {fileID: 11400000, guid: 7b4076bed77581242b2fdc695d22f8a5, type: 2}
+    - target: {fileID: 6814371738698829426, guid: 2a886579aef7a594cb0d370ee71f68dc, type: 3}
+      propertyPath: stageCount
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6814371738698829426, guid: 2a886579aef7a594cb0d370ee71f68dc, type: 3}
       propertyPath: bigEventData
       value: 

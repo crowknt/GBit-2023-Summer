@@ -204,6 +204,7 @@ MonoBehaviour:
   goodHealth: "\u5065\u5EB7"
   playerAbilityData: {fileID: 11400000, guid: 7524ebdf77182c741a8ac69e39bd154b, type: 2}
   textualStats: {fileID: 1882392404784790648}
+  loseFormat: "{0}\u4E0D\u8DB3\uFF0C\u524D\u9762\u7684\u533A\u57DF\u4EE5\u540E\u518D\u6765\u63A2\u7D22\u5427"
 --- !u!1 &8281189917873495646
 GameObject:
   m_ObjectHideFlags: 0
