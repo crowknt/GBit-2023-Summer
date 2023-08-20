@@ -1,22 +1,23 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class PausePopupController : MonoBehaviour
 {
-    [SerializeField] private Button buttonResume;
-    [SerializeField] private Button buttonSettings;
-    [SerializeField] private Button buttonReturnToTitle;
+    [SerializeField] private GButton buttonResume;
+    [SerializeField] private GButton buttonSettings;
+    [SerializeField] private GButton buttonReturnToTitle;
 
     private void Start()
     {
-        buttonResume.onClick.AddListener(Resume);
-        buttonSettings.onClick.AddListener(OpenSettings);
-        buttonReturnToTitle.onClick.AddListener(ReturnToTitle);
+        buttonResume.OnClick = Resume;
+        buttonSettings.OnClick = OpenSettings;
+        buttonReturnToTitle.OnClick = ReturnToTitle;
+        SoundManager.PauseBackgroundMusic();
     }
 
     private void Resume()
     {
+        SoundManager.ResumeBackgroundMusic();
         Destroy(gameObject);
     }
 
@@ -27,6 +28,7 @@ public class PausePopupController : MonoBehaviour
 
     private void ReturnToTitle()
     {
+        SoundManager.StopBackgroundMusic();
         SceneManager.LoadScene("Title");
     }
 }

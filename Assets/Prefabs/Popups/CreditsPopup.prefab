@@ -329,7 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacb7dc22a8cecf48a03f2ba44e39f57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonClose: {fileID: 5047520432261252442}
+  buttonClose: {fileID: 8041915475523592621}
 --- !u!1001 &2766661123694623269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -545,15 +545,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a8f034fcf1c06a44b91231a97805a88, type: 3}
---- !u!114 &5047520432261252442 stripped
+--- !u!114 &8041915475523592621 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1342888467521234972, guid: 4a8f034fcf1c06a44b91231a97805a88, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4266069249684655339, guid: 4a8f034fcf1c06a44b91231a97805a88, type: 3}
   m_PrefabInstance: {fileID: 6101956266822151494}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: b3a72b3faef871045a637458cd0597f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &8166446025971199070 stripped

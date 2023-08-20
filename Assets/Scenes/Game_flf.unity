@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 2133661197}
-  buttonPause: {fileID: 2004158840}
+  buttonPause: {fileID: 2004158843}
   pausePopup: {fileID: 4212172233272780746, guid: b9be5e9b74de5834794371db9db120ad, type: 3}
 --- !u!1001 &1251935208
 PrefabInstance:
@@ -1182,6 +1182,7 @@ GameObject:
   - component: {fileID: 2004158842}
   - component: {fileID: 2004158841}
   - component: {fileID: 2004158840}
+  - component: {fileID: 2004158843}
   m_Layer: 5
   m_Name: ButtonPause
   m_TagString: Untagged
@@ -1290,6 +1291,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2004158838}
   m_CullTransparentMesh: 1
+--- !u!114 &2004158843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004158838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a72b3faef871045a637458cd0597f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 2004158840}
+  clickSound: {fileID: 8300000, guid: 07af2aeef59c8114f930a0fc06ccc5e2, type: 3}
 --- !u!1001 &2012009619
 PrefabInstance:
   m_ObjectHideFlags: 0
