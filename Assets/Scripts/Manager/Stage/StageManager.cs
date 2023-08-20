@@ -26,7 +26,9 @@ namespace Manager.Stage
         //[SerializeField] private TextualStats textStatus;
 
         [SerializeField, Header("结局弹窗")] private GameOverPopupController gameOverPop;
-        
+
+        [Header("动效")] [SerializeField] private GameObject block;
+        [SerializeField] private CanvasGroup mainUI;
 
         private EventData.EventCardInfo _curEventCardInfo;
         private int _currentEventIndex = 0;
@@ -42,6 +44,7 @@ namespace Manager.Stage
             BigEvent
         }
 
+        [Header("事件卡状态")]
         public SmallEventState smallEventState = SmallEventState.Card;
         //private TextualStats _textStatus;
         private void Awake()
@@ -55,6 +58,8 @@ namespace Manager.Stage
             EventCenter.Instance.AddListener("NormalEnd",NormalEnd);
             EventCenter.Instance.AddListener("ShowTextStatus",ShowTextStatus);
             EventCenter.Instance.AddListener("LoseEnd",LoseEnd);
+            EventCenter.Instance.AddListener<bool>(Const.Events.Block, Block);
+            EventCenter.Instance.AddListener<float>(Const.Events.ChangeMainUIOpacity, ChangeMainUIOpacity);
 
             _textualStats = textAbilityStatus.GetComponent<TextualStats>();
         }
@@ -86,24 +91,28 @@ namespace Manager.Stage
 
         public void NextSmallEvent()
         {
+            StartCoroutine(RunNextSmallEvent());
+        }
+
+        public IEnumerator RunNextSmallEvent()
+        {
             if (_remainingEvents < 1 || _currentEventIndex == eventData.eventCardInfos.Count)
             {
                 _eventCard.gameObject.SetActive(false);
                 _bigEvent = Instantiate(bigEvent, transform);
                 _bigEvent.UpdateBigEventData(bigEventData);
                 bigEvent.HideOnInstantiate();
-                _bigEvent.FadeInEffect();
-                return;
+                yield return _bigEvent.FadeInEffect();
+                yield break;
             }
 
             _currentEventIndex += 1;
             _curEventCardInfo = eventData.eventCardInfos[_currentEventIndex];
             _remainingEvents--;
             _eventCard.ResetEvent(_curEventCardInfo);
-            EventCenter.Instance.EventTrigger<int>("ShowRemainingDaysOff",_remainingEvents);
+            EventCenter.Instance.EventTrigger<int>("ShowRemainingDaysOff", _remainingEvents);
             //_textualStats.gameObject.SetActive(false);
             //CloseTextStatus();
-
         }
 
         private void NextStage()
@@ -127,6 +136,8 @@ namespace Manager.Stage
             EventCenter.Instance.RemoveEventListener("NormalEnd",NormalEnd);
             EventCenter.Instance.RemoveEventListener("ShowTextStatus",ShowTextStatus);
             EventCenter.Instance.RemoveEventListener("LoseEnd",LoseEnd);
+            EventCenter.Instance.RemoveEventListener<bool>(Const.Events.Block, Block);
+            EventCenter.Instance.RemoveEventListener<float>(Const.Events.ChangeMainUIOpacity, ChangeMainUIOpacity);
         }
 
         public void ShowTextAbilityStatus()
@@ -177,6 +188,16 @@ namespace Manager.Stage
         {
             _gameOverPop = Instantiate(gameOverPop, transform);
             _gameOverPop.LosePop();
+        }
+
+        private void Block(bool blocked)
+        {
+            block.SetActive(blocked);
+        }
+
+        private void ChangeMainUIOpacity(float opacity)
+        {
+            mainUI.alpha = opacity;
         }
     }
 }

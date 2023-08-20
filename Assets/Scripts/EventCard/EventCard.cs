@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Manager;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,7 +19,8 @@ public class EventCard : MonoBehaviour
 
     [Header("事件的显示模块")] [SerializeField] private Image image;
     [SerializeField] private TextMeshProUGUI info;
-    
+
+    [Header("动效")] [SerializeField] private CanvasGroup mainUI;
 
 
     private EventChooseButton _leftButtonScript;
@@ -37,6 +39,8 @@ public class EventCard : MonoBehaviour
 
         _leftButtonScript = leftButton.transform.GetComponent<EventChooseButton>();
         _rightButtonScript = rightButton.transform.GetComponent<EventChooseButton>();
+
+        EventCenter.Instance.AddListener<float>(Const.Events.ChangeMainUIOpacity, ChangeMainUIOpacity);
     }
 
     private void Start()
@@ -44,30 +48,40 @@ public class EventCard : MonoBehaviour
         HideOnInstantiate();
     }
 
+    private void OnDestroy()
+    {
+        EventCenter.Instance.RemoveEventListener<float>(Const.Events.ChangeMainUIOpacity, ChangeMainUIOpacity);
+    }
+
     /// <summary>
     /// 此处，
     /// </summary>
     public void OnLeftButtonDown()
     {
-        FadeOutEffect();
-        
+        StartCoroutine(RunOnLeftButtonDown());
+    }
+
+    private IEnumerator RunOnLeftButtonDown()
+    {
+        yield return FadeOutEffect();
+
         eventCard.SetActive(false);
         leftOutcome.gameObject.SetActive(true);
-        leftOutcome.FadeInEffect();
-        leftOutcome.RunPrinter();
-        
-        
+        StartCoroutine(leftOutcome.FadeInEffect());
     }
 
     public void OnRightButtonDown()
     {
-        FadeOutEffect();
-        
-        
+        StartCoroutine(RunOnRightButtonDown());
+    }
+
+    private IEnumerator RunOnRightButtonDown()
+    {
+        yield return FadeOutEffect();
+
         eventCard.SetActive(false);
         rightOutcome.gameObject.SetActive(true);
-        rightOutcome.FadeInEffect();
-        rightOutcome.RunPrinter();
+        StartCoroutine(rightOutcome.FadeInEffect());
     }
 
     public void ResetEvent(EventData.EventCardInfo newInfo)
@@ -86,9 +100,7 @@ public class EventCard : MonoBehaviour
         
        ChangeCardInfo(newInfo.image,newInfo.info);
        
-       FadeInEffect();
-       
-       PrintText(_printContent,info);
+       StartCoroutine(FadeInEffect());
        
        
         
@@ -136,25 +148,31 @@ public class EventCard : MonoBehaviour
     //leftButton二者是休息日页面的按钮，_leftButtonScript是对应的按钮上绑的脚本
     //可能需要添加协程等
     //每个方法预设情况都是，内容已经更新完毕，执行完特效再显示出来
-    
+
     /// <summary>
     /// 工作日切换至休息日的动效，从无到有。
     /// 会在每个新的scene自动执行第一次，所以大事件到小事件的后半部分动效通用此
     /// </summary>
-    private void FadeInEffect()
+    private IEnumerator FadeInEffect()
     {
         //请见对应脚本
         _leftButtonScript.FadeInEffect();
         _rightButtonScript.FadeInEffect();
-        
+
+        yield return UIManager.FadeInMainUI();
+
+        PrintText(_printContent, info);
     }
+    
     /// <summary>
     /// 休息日到对应工作日的动效，从有到无
     /// </summary>
-    private void FadeOutEffect()
+    private IEnumerator FadeOutEffect()
     {
         _leftButtonScript.FadeOutEffect();
         _rightButtonScript.FadeOutEffect();
+
+        yield return UIManager.FadeOutMainUI();
     }
 
     /// <summary>
@@ -163,5 +181,10 @@ public class EventCard : MonoBehaviour
     private void HideOnInstantiate()
     {
         
+    }
+
+    private void ChangeMainUIOpacity(float opacity)
+    {
+        mainUI.alpha = opacity;
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Manager;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,29 +15,44 @@ namespace BigEvent
         [SerializeField] private TextMeshProUGUI info;
         [SerializeField] private TextMeshProUGUI buttonText;
         [SerializeField] private AudioClip clip;
+        
+        [Header("动效")] [SerializeField] private CanvasGroup mainUI;
 
         private bool _isEnd = false;
         
         private void Awake()
         {
             nextButton.onClick.AddListener(OnNextButton);
+
+            EventCenter.Instance.AddListener<float>(Const.Events.ChangeMainUIOpacity, ChangeMainUIOpacity);
+        }
+
+        private void OnDestroy()
+        {
+            EventCenter.Instance.RemoveEventListener<float>(Const.Events.ChangeMainUIOpacity, ChangeMainUIOpacity);
         }
 
         private void OnNextButton()
+        {
+            StartCoroutine(RunOnNextButton());
+        }
+
+        private IEnumerator RunOnNextButton()
         {
             if (clip != null)
             {
                 SoundManager.PlaySoundEffect(clip);
             }
-            
+
             if (_isEnd)
             {
                 //todo 呼出结束窗口
-                FadeOutEffect();
+                yield return FadeOutEffect();
                 EventCenter.Instance.EventTrigger("NormalEnd");
-                return;
+                yield break;
             }
-            FadeOutEffect();
+
+            yield return FadeOutEffect();
             //todo 下一关
             EventCenter.Instance.EventTrigger("NextStage");
         }
@@ -84,14 +100,19 @@ namespace BigEvent
             PrintText(_printContent,info);
         }
 
-        public void FadeInEffect()
+        public IEnumerator FadeInEffect()
         {
-            
+            yield return UIManager.FadeInMainUI();
         }
 
-        public void FadeOutEffect()
+        public IEnumerator FadeOutEffect()
         {
-            
+            yield return UIManager.FadeOutMainUI();
+        }
+
+        private void ChangeMainUIOpacity(float opacity)
+        {
+            mainUI.alpha = opacity;
         }
     }
 }

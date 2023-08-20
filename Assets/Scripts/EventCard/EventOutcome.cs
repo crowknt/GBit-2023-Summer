@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Manager;
 using Manager.Stage;
 using TMPro;
 using UnityEngine;
@@ -16,6 +17,8 @@ public class EventOutcome : MonoBehaviour
 
     [SerializeField] private AudioClip clip;
     // [SerializeField] protected StageManager stageManager;
+    
+    [Header("动效")] [SerializeField] private CanvasGroup mainUI;
 
     private bool isSpecial = false;
     private string _specialText = "";
@@ -28,32 +31,42 @@ public class EventOutcome : MonoBehaviour
         //     stageManager = transform.GetComponentInParent<StageManager>();
         // }
         _stageManager = GetComponentInParent<StageManager>();
+
+        EventCenter.Instance.AddListener<float>(Const.Events.ChangeMainUIOpacity, ChangeMainUIOpacity);
+    }
+
+    private void OnDestroy()
+    {
+        EventCenter.Instance.RemoveEventListener<float>(Const.Events.ChangeMainUIOpacity, ChangeMainUIOpacity);
     }
 
     public virtual void OnNextButtonDown()
+    {
+        StartCoroutine(RunOnNextButtonDown());
+    }
+
+    private IEnumerator RunOnNextButtonDown()
     {
         if (clip != null)
         {
             SoundManager.PlaySoundEffect(clip);
         }
-        
+
         //todo switch to next event
         //EventCenter.Instance.EventTrigger("TestResetEvent");
         if (isSpecial)
         {
             //Debug.Log("特殊事件");
-            FadeOutEffect();
+            yield return FadeOutEffect();
             EndEvent(_specialText);
-            return;
         }
+        else
+        {
+            Debug.Log("结束按钮");
+            StartCoroutine(DelayedSwtich());
 
-        
-        Debug.Log("结束按钮");
-        StartCoroutine(DelayedSwtich());
-
-       
-        //EventCenter.Instance.EventTrigger("CloseTextAbilityStatus");
-
+            //EventCenter.Instance.EventTrigger("CloseTextAbilityStatus");
+        }
     }
 
     public void UpdateOutcomeInfo(EventData.EventOutcomeInfo newOutcome)
@@ -84,7 +97,7 @@ public class EventOutcome : MonoBehaviour
         
         
         yield return new WaitForSeconds(0.2f);
-        FadeOutEffect();
+        yield return FadeOutEffect();
         _stageManager.smallEventState = StageManager.SmallEventState.Card;
         EventCenter.Instance.EventTrigger("NextSmallEvent");
        
@@ -121,16 +134,23 @@ public class EventOutcome : MonoBehaviour
     /// <summary>
     /// 事件结果的按钮没有特别的逻辑（鼠标高亮事件），所以没有分开。按钮的引用都在这里
     /// </summary>
-    public void FadeInEffect()
+    public IEnumerator FadeInEffect()
     {
-        
+        yield return UIManager.FadeInMainUI();
+
+        RunPrinter();
     }
 
     /// <summary>
     /// 特殊结局时应该没特别问题。普通情况下在协程DelayedSwitch里调用（我已经调了），协程的延迟用于避免额外的按钮触发
     /// </summary>
-    public void FadeOutEffect()
+    public IEnumerator FadeOutEffect()
     {
-        
+        yield return UIManager.FadeOutMainUI();
+    }
+
+    private void ChangeMainUIOpacity(float opacity)
+    {
+        mainUI.alpha = opacity;
     }
 }

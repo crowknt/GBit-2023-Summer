@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Manager;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,7 +24,7 @@ namespace BigEvent
         [SerializeField] protected BigEventOutcome noOutcome;
         [Header("数据")] [SerializeField] protected PlayerAbilityData abilityData;
         [SerializeField] private AudioClip clip;
-
+        [Header("动效")] [SerializeField] private CanvasGroup mainUI;
         
         private BigEventData _bigEventData;
         protected virtual void Awake()
@@ -32,6 +33,8 @@ namespace BigEvent
             {
                 checkButton.onClick.AddListener(OnCheckButton);
             }
+
+            EventCenter.Instance.AddListener<float>(Const.Events.ChangeMainUIOpacity, ChangeMainUIOpacity);
         }
 
         protected void Start()
@@ -42,7 +45,17 @@ namespace BigEvent
             
         }
 
+        private void OnDestroy()
+        {
+            EventCenter.Instance.RemoveEventListener<float>(Const.Events.ChangeMainUIOpacity, ChangeMainUIOpacity);
+        }
+
         protected virtual void OnCheckButton()
+        {
+            StartCoroutine(RunOnCheckButton());
+        }
+
+        private IEnumerator RunOnCheckButton()
         {
             //关闭当前窗口
             bigEvent.SetActive(false);
@@ -51,25 +64,26 @@ namespace BigEvent
             {
                 SoundManager.PlaySoundEffect(clip);
             }
-            
+
             //检测属性值
             if (abilityData.intelligence < intelligenceCondition || abilityData.virtue < virtueCondition ||
                 abilityData.body < bodyCondition)
             {
                 //不通过
-                FadeOutEffect();
-                
+                yield return FadeOutEffect();
+
                 noOutcome.gameObject.SetActive(true);
-                
-                noOutcome.FadeInEffect();
+
+                yield return noOutcome.FadeInEffect();
                 noOutcome.RunPrinter();
-                return;
+                yield break;
             }
+
             //通过
-            FadeOutEffect();
-            
+            yield return FadeOutEffect();
+
             yesOutcome.gameObject.SetActive(true);
-            yesOutcome.FadeInEffect();
+            yield return yesOutcome.FadeInEffect();
             yesOutcome.RunPrinter();
         }
 
@@ -115,14 +129,14 @@ namespace BigEvent
             textLabel.text = textToPrint;
         }
 
-        public void FadeInEffect()
+        public IEnumerator FadeInEffect()
         {
-            
+            yield return UIManager.FadeInMainUI();
         }
 
-        public void FadeOutEffect()
+        public IEnumerator FadeOutEffect()
         {
-            
+            yield return UIManager.FadeOutMainUI();
         }
 
         /// <summary>
@@ -131,6 +145,11 @@ namespace BigEvent
         public void HideOnInstantiate()
         {
             
+        }
+
+        private void ChangeMainUIOpacity(float opacity)
+        {
+            mainUI.alpha = opacity;
         }
     }
 
