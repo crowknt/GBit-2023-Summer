@@ -411,7 +411,7 @@ PrefabInstance:
     - target: {fileID: 4526317169308087642, guid: e6a496c3492a6954bbe4042c5c4ccaac, type: 3}
       propertyPath: bigEventData
       value: 
-      objectReference: {fileID: 11400000, guid: cc54247ca767a574b957dc681a845d71, type: 2}
+      objectReference: {fileID: 11400000, guid: 00ee557e5c02c9249ba8901221cad07f, type: 2}
     - target: {fileID: 4526317169308087642, guid: e6a496c3492a6954bbe4042c5c4ccaac, type: 3}
       propertyPath: nextStageName
       value: Stage1

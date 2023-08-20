@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Manager.Stage;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -15,11 +16,13 @@ public class EventChooseButton : MonoBehaviour,IPointerEnterHandler,IPointerExit
     [SerializeField] private TextMeshProUGUI buttonText;
     [SerializeField] private AudioClip clip;
 
+    private StageManager _stageManager;
     private void Awake()
     {
         _button = GetComponent<Button>();
         
         _button.onClick.AddListener(OnEventButtonDown);
+        _stageManager = GetComponentInParent<StageManager>();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -48,6 +51,10 @@ public class EventChooseButton : MonoBehaviour,IPointerEnterHandler,IPointerExit
 
     public void OnEventButtonDown()
     {
+        if (_stageManager.smallEventState == StageManager.SmallEventState.Outcome)
+        {
+            return;
+        }
         if (clip != null)
         {
             SoundManager.PlaySoundEffect(clip);
@@ -56,7 +63,10 @@ public class EventChooseButton : MonoBehaviour,IPointerEnterHandler,IPointerExit
         GameManager.Instance.AbilityDataChange(intelligenceChange,virtueChange,bodyChange);
         EventCenter.Instance.EventTrigger("SliderFillChange");
         EventCenter.Instance.EventTrigger("ShowWeekday");
-        EventCenter.Instance.EventTrigger("ShowTextAbilityStatus");
+        //EventCenter.Instance.EventTrigger("ShowTextAbilityStatus");
+        //EventCenter.Instance.EventTrigger("ShowTextStatus");
+        _stageManager.smallEventState = StageManager.SmallEventState.Outcome;
+        Debug.Log("选择按钮");
         EventCenter.Instance.EventTrigger("ClearHighlights");
         
     }

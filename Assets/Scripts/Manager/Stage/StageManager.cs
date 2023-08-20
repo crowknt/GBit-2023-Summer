@@ -23,6 +23,7 @@ namespace Manager.Stage
         
         [FormerlySerializedAs("textAbilityUI")] [Header("文字属性显示")] [SerializeField] private GameObject textAbilityStatus;
         [Header("属性数据")] [SerializeField] private PlayerAbilityData abilityData;
+        //[SerializeField] private TextualStats textStatus;
 
         [SerializeField, Header("结局弹窗")] private GameOverPopupController gameOverPop;
         
@@ -33,6 +34,16 @@ namespace Manager.Stage
         private BigEvent.BigEvent _bigEvent;
         private TextualStats _textualStats;
         private GameOverPopupController _gameOverPop;
+
+        public enum SmallEventState
+        {
+            Card,
+            Outcome,
+            BigEvent
+        }
+
+        public SmallEventState smallEventState = SmallEventState.Card;
+        //private TextualStats _textStatus;
         private void Awake()
         {
             //todo add event change event
@@ -42,6 +53,7 @@ namespace Manager.Stage
             EventCenter.Instance.AddListener("ShowTextAbilityStatus",ShowTextAbilityStatus);
             EventCenter.Instance.AddListener<string>("SpecialEnd",SmallOutcomeButtonSpecial);
             EventCenter.Instance.AddListener("NormalEnd",NormalEnd);
+            EventCenter.Instance.AddListener("ShowTextStatus",ShowTextStatus);
 
             _textualStats = textAbilityStatus.GetComponent<TextualStats>();
         }
@@ -55,6 +67,19 @@ namespace Manager.Stage
             EventCenter.Instance.EventTrigger<int>("ShowRemainingDaysOff",_remainingEvents);
             EventCenter.Instance.EventTrigger("ClearHighlights");
             CloseTextAbilityStatus();
+        }
+
+        private void Update()
+        {
+            switch (smallEventState)
+            {
+                case SmallEventState.Card:
+                    CloseTextAbilityStatus();
+                    break;
+                case SmallEventState.Outcome:
+                    ShowTextAbilityStatus();
+                    break;
+            }
         }
 
         public void NextSmallEvent()
@@ -72,6 +97,8 @@ namespace Manager.Stage
             _remainingEvents--;
             _eventCard.ResetEvent(_curEventCardInfo);
             EventCenter.Instance.EventTrigger<int>("ShowRemainingDaysOff",_remainingEvents);
+            //_textualStats.gameObject.SetActive(false);
+            //CloseTextStatus();
 
         }
 
@@ -94,20 +121,33 @@ namespace Manager.Stage
             EventCenter.Instance.RemoveEventListener("ShowTextAbilityStatus",ShowTextAbilityStatus);
             EventCenter.Instance.RemoveEventListener<string>("SpecialEnd",SmallOutcomeButtonSpecial);
             EventCenter.Instance.RemoveEventListener("NormalEnd",NormalEnd);
+            EventCenter.Instance.RemoveEventListener("ShowTextStatus",ShowTextStatus);
         }
 
-        private void ShowTextAbilityStatus()
+        public void ShowTextAbilityStatus()
         {
             textAbilityStatus.SetActive(true);
 
             _textualStats.Intelligence = abilityData.intelligence;
             _textualStats.Virtue = abilityData.virtue;
             _textualStats.Health = abilityData.body;
+            
         }
 
-        private void CloseTextAbilityStatus()
+        private void ShowTextStatus()
+        {
+            //_textStatus = Instantiate(textStatus, transform);
+            //_textStatus.ChangeText(abilityData.intelligence,abilityData.virtue,abilityData.body);
+        }
+
+        public void CloseTextAbilityStatus()
         {
             textAbilityStatus.SetActive(false);
+        }
+
+        private void CloseTextStatus()
+        {
+            //Destroy(_textStatus);
         }
 
         public void SmallOutcomeButton()

@@ -19,6 +19,7 @@ public class EventOutcome : MonoBehaviour
 
     private bool isSpecial = false;
     private string _specialText = "";
+    private StageManager _stageManager;
     protected virtual void Awake()
     {
         nextButton.onClick.AddListener(OnNextButtonDown);
@@ -26,6 +27,7 @@ public class EventOutcome : MonoBehaviour
         // {
         //     stageManager = transform.GetComponentInParent<StageManager>();
         // }
+        _stageManager = GetComponentInParent<StageManager>();
     }
 
     public virtual void OnNextButtonDown()
@@ -45,11 +47,12 @@ public class EventOutcome : MonoBehaviour
         }
 
         
-        
-        EventCenter.Instance.EventTrigger("NextSmallEvent");
-        
-        
-        EventCenter.Instance.EventTrigger("CloseTextAbilityStatus");
+        Debug.Log("结束按钮");
+        StartCoroutine(DelayedSwtich());
+
+       
+        //EventCenter.Instance.EventTrigger("CloseTextAbilityStatus");
+
     }
 
     public void UpdateOutcomeInfo(EventData.EventOutcomeInfo newOutcome)
@@ -71,6 +74,17 @@ public class EventOutcome : MonoBehaviour
     public void EndEvent(string specialText)
     {
         EventCenter.Instance.EventTrigger<string>("SpecialEnd",specialText);
+    }
+
+    private IEnumerator DelayedSwtich()
+    {
+        
+        
+        yield return new WaitForSeconds(0.2f);
+        
+        _stageManager.smallEventState = StageManager.SmallEventState.Card;
+        EventCenter.Instance.EventTrigger("NextSmallEvent");
+       
     }
     
 }
