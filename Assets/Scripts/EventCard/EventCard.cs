@@ -48,6 +48,7 @@ public class EventCard : MonoBehaviour
     {
         eventCard.SetActive(false);
         leftOutcome.gameObject.SetActive(true);
+        leftOutcome.RunPrinter();
         //todo switch to left outcome
     }
 
@@ -56,23 +57,28 @@ public class EventCard : MonoBehaviour
         //todo switch to right outcome
         eventCard.SetActive(false);
         rightOutcome.gameObject.SetActive(true);
+        rightOutcome.RunPrinter();
     }
 
     public void ResetEvent(EventData.EventCardInfo newInfo)
     {
-       ChangeCardInfo(newInfo.image,newInfo.info);
-       _leftButtonScript.UpdateChooseInfo(newInfo.outcomeInfoL.intelligence,newInfo.outcomeInfoL.virtue,
-           newInfo.outcomeInfoL.body,newInfo.outcomeInfoL.chooseButtonText);
-       _rightButtonScript.UpdateChooseInfo(newInfo.outcomeInfoR.intelligence,newInfo.outcomeInfoR.virtue,
-           newInfo.outcomeInfoR.body,newInfo.outcomeInfoR.chooseButtonText);
-       
-       
+        
         leftOutcome.gameObject.SetActive(false);
         leftOutcome.UpdateOutcomeInfo(newInfo.outcomeInfoL);
         rightOutcome.UpdateOutcomeInfo(newInfo.outcomeInfoR);
         
         rightOutcome.gameObject.SetActive(false);
         eventCard.SetActive(true);
+        _leftButtonScript.UpdateChooseInfo(newInfo.outcomeInfoL.intelligence,newInfo.outcomeInfoL.virtue,
+            newInfo.outcomeInfoL.body,newInfo.outcomeInfoL.chooseButtonText);
+        _rightButtonScript.UpdateChooseInfo(newInfo.outcomeInfoR.intelligence,newInfo.outcomeInfoR.virtue,
+            newInfo.outcomeInfoR.body,newInfo.outcomeInfoR.chooseButtonText);
+        
+       ChangeCardInfo(newInfo.image,newInfo.info);
+       PrintText(_printContent,info);
+       
+       
+        
     }
 
     public void ChangeButtonInfo()
@@ -83,6 +89,31 @@ public class EventCard : MonoBehaviour
     public void ChangeCardInfo(Sprite newImg, string newInfo)
     {
         image.sprite = newImg;
-        info.text = newInfo;
+        //info.text = newInfo;
+        info.text = "";
+        _printContent = newInfo;
+    }
+    
+    [Header("打字特效")] [SerializeField] private float printSpeed = 15;
+    private string _printContent;
+    private void PrintText(string textToPrint, TextMeshProUGUI textLabel)
+    {
+        StartCoroutine(PrintTextRoutine(textToPrint, textLabel));
+    }
+
+    IEnumerator PrintTextRoutine(string textToPrint, TextMeshProUGUI textLabel)
+    {
+        float t = 0;
+        int charIndex = 0;
+        while (charIndex < textToPrint.Length)
+        {
+            t += Time.deltaTime * printSpeed;
+            charIndex = Mathf.FloorToInt(t);//把t转为int类型赋值给charIndex
+            charIndex = Mathf.Clamp(charIndex, 0, textToPrint.Length);
+            textLabel.text = textToPrint.Substring(0, charIndex);
+
+            yield return null;
+        }
+        textLabel.text = textToPrint;
     }
 }

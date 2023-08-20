@@ -58,7 +58,9 @@ public class EventOutcome : MonoBehaviour
     public void UpdateOutcomeInfo(EventData.EventOutcomeInfo newOutcome)
     {
         image.sprite = newOutcome.image;
-        info.text = newOutcome.info;
+        //info.text = newOutcome.info;
+        info.text = "";
+        _printContent = newOutcome.info;
         buttonText.text = newOutcome.continueButtonText;
         // nextButton.onClick.RemoveAllListeners();
         // nextButton.onClick.AddListener(OnNextButtonDown);
@@ -85,6 +87,34 @@ public class EventOutcome : MonoBehaviour
         _stageManager.smallEventState = StageManager.SmallEventState.Card;
         EventCenter.Instance.EventTrigger("NextSmallEvent");
        
+    }
+    
+    [Header("打字特效")] [SerializeField] private float printSpeed = 15;
+    private string _printContent;
+    private void PrintText(string textToPrint, TextMeshProUGUI textLabel)
+    {
+        StartCoroutine(PrintTextRoutine(textToPrint, textLabel));
+    }
+
+    IEnumerator PrintTextRoutine(string textToPrint, TextMeshProUGUI textLabel)
+    {
+        float t = 0;
+        int charIndex = 0;
+        while (charIndex < textToPrint.Length)
+        {
+            t += Time.deltaTime * printSpeed;
+            charIndex = Mathf.FloorToInt(t);//把t转为int类型赋值给charIndex
+            charIndex = Mathf.Clamp(charIndex, 0, textToPrint.Length);
+            textLabel.text = textToPrint.Substring(0, charIndex);
+
+            yield return null;
+        }
+        textLabel.text = textToPrint;
+    }
+
+    public void RunPrinter()
+    {
+        PrintText(_printContent,info);
     }
     
 }

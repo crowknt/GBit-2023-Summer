@@ -15,7 +15,7 @@ public class Printer : MonoBehaviour
 
     void Start( )
     {
-        Run(tx, text);
+        //Run(tx, text);
     }
     public void Run(string textToType, TextMeshProUGUI textLabel)
     {
