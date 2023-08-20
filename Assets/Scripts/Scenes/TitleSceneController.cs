@@ -1,20 +1,21 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class TitleSceneController : MonoBehaviour
 {
-    [SerializeField] private Button buttonNewGame;
-    [SerializeField] private Button buttonCredits;
-    [SerializeField] private Button buttonQuitGame;
+    [SerializeField] private GButton buttonNewGame;
+    [SerializeField] private GButton buttonCredits;
+    [SerializeField] private GButton buttonQuitGame;
     [SerializeField] private Canvas canvas;
     [SerializeField] private GameObject creditsPopup;
+    [SerializeField] private AudioClip backgroundMusic;
 
     private void Start()
     {
-        buttonNewGame.onClick.AddListener(StartNewGame);
-        buttonCredits.onClick.AddListener(ShowCredits);
-        buttonQuitGame.onClick.AddListener(QuitGame);
+        buttonNewGame.OnClick = StartNewGame;
+        buttonCredits.OnClick = ShowCredits;
+        buttonQuitGame.OnClick = QuitGame;
+        SoundManager.SwitchBackgroundMusic(backgroundMusic);
     }
 
     private void StartNewGame()
