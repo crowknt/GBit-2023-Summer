@@ -15,13 +15,15 @@ public class GameOverPopupController : MonoBehaviour
     [SerializeField] private string goodHealth = "";
     [SerializeField] private PlayerAbilityData playerAbilityData;
 
+    private bool _isSpecial = false;
+    private string _specialText;
     private void Start()
     {
         buttonReturnToTitle.OnClick = ReturnToTitle;
         ShowConclusion();
     }
 
-    private void ShowConclusion()
+    public void ShowConclusion()
     {
         List<Tuple<int, int>> stats = new()
         {
@@ -42,6 +44,17 @@ public class GameOverPopupController : MonoBehaviour
                 conclusion.text = String.Format(conclusionFormat, goodHealth);
                 break;
         }
+
+        if (_isSpecial == true)
+        {
+            conclusion.text = _specialText;
+        }
+    }
+
+    public void SpecialEndTextChange(string specialText)
+    {
+        _specialText = specialText;
+        _isSpecial = true;
     }
 
     private void ReturnToTitle()

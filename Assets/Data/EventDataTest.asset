@@ -50,8 +50,8 @@ MonoBehaviour:
       info: "\u5DE6\u7ED3\u679C"
       chooseButtonText: yes
       continueButtonText: "\u4E0B\u4E00\u5929"
-      isEndEvent: 0
-      specialEndText: 
+      isEndEvent: 1
+      specialEndText: "\u7279\u6B8A\u7ED3\u5C40\u6D4B\u8BD5"
     outcomeInfoR:
       intelligence: 5
       virtue: 0
