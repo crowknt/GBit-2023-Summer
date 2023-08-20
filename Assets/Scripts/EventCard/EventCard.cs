@@ -116,4 +116,19 @@ public class EventCard : MonoBehaviour
         }
         textLabel.text = textToPrint;
     }
+    
+    /// <summary>
+    /// 工作日切换至休息日的动效，从无到有
+    /// </summary>
+    private void NextSmallEventEffect()
+    {
+        
+    }
+    /// <summary>
+    /// 休息日到对应工作日的动效，从有到无
+    /// </summary>
+    private void SwitchToOutcomeEffect()
+    {
+        
+    }
 }
