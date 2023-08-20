@@ -4,11 +4,10 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class GameOverPopupController : MonoBehaviour
 {
-    [SerializeField] private Button buttonReturnToTitle;
+    [SerializeField] private GButton buttonReturnToTitle;
     [SerializeField] private TextMeshProUGUI conclusion;
     [SerializeField] private string conclusionFormat = "{0}";
     [SerializeField] private string goodIntelligence = "";
@@ -18,7 +17,7 @@ public class GameOverPopupController : MonoBehaviour
 
     private void Start()
     {
-        buttonReturnToTitle.onClick.AddListener(ReturnToTitle);
+        buttonReturnToTitle.OnClick = ReturnToTitle;
         ShowConclusion();
     }
 
@@ -47,6 +46,7 @@ public class GameOverPopupController : MonoBehaviour
 
     private void ReturnToTitle()
     {
+        SoundManager.StopBackgroundMusic();
         SceneManager.LoadScene("Title");
     }
 }

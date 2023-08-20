@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a532bbfbc77754143bb3a4eea0701069, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonReturnToTitle: {fileID: 0}
+  buttonReturnToTitle: {fileID: 8266411735187409906}
   conclusion: {fileID: 2703212703481964768}
   conclusionFormat: "\u4F60\u5EA6\u8FC7\u4E86\u4E00\u4E2A{0}\u7684\u4EBA\u751F"
   goodIntelligence: "\u806A\u6167"
@@ -951,3 +951,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2736934587703673112, guid: 4a8f034fcf1c06a44b91231a97805a88, type: 3}
   m_PrefabInstance: {fileID: 5299662316363351833}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8266411735187409906 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4266069249684655339, guid: 4a8f034fcf1c06a44b91231a97805a88, type: 3}
+  m_PrefabInstance: {fileID: 5299662316363351833}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a72b3faef871045a637458cd0597f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
