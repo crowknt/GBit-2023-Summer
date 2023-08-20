@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GameSceneController : MonoBehaviour
+public class ButtonPauseController : MonoBehaviour
 {
     [SerializeField] private Canvas canvas;
 
