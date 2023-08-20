@@ -503,7 +503,7 @@ PrefabInstance:
     - target: {fileID: 4721641008443475607, guid: 914edd2cf8a5d0e468e47592426fe4d8, type: 3}
       propertyPath: eventData
       value: 
-      objectReference: {fileID: 11400000, guid: 2a7e6bdb568ff3046a7094b9b8d76e79, type: 2}
+      objectReference: {fileID: 11400000, guid: 313ee21e38c5af74e85496328481a153, type: 2}
     - target: {fileID: 4721641008443475607, guid: 914edd2cf8a5d0e468e47592426fe4d8, type: 3}
       propertyPath: nextStageName
       value: Stage3

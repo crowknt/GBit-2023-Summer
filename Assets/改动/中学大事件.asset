@@ -16,8 +16,8 @@ MonoBehaviour:
   virtueCondition: 10
   bodyCondition: 15
   info: "\u4E2D\u8003\u5C45\u7136\u8981\u8003\u4F53\u80B2\uFF0C\u4F60\u53EF\u4E0D\u80FD\u5012\u5728\u8FD9\u4E86\uFF0C\u4F60\u89C9\u5F97\u8981\u8003\u4E2A\u91CD\u70B9\u9AD8\u4E2D"
-  image: {fileID: 0}
-  buttonText: check
+  image: {fileID: 21300000, guid: 9bd0dcbad3434394395d9c72ec0cf3c3, type: 3}
+  buttonText: "\u51B2\uFF01"
   yesOutcome:
     info: "\u4F60\u6210\u529F\u8FDB\u5165\u4E86\u91CD\u70B9\u9AD8\u4E2D"
     image: {fileID: 21300000, guid: 9bd0dcbad3434394395d9c72ec0cf3c3, type: 3}
