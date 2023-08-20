@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -11,6 +12,7 @@ public class EventChooseButton : MonoBehaviour,IPointerEnterHandler,IPointerExit
     private int virtueChange = 0;
     private int bodyChange = 0;
     private Button _button;
+    [SerializeField] private TextMeshProUGUI buttonText;
 
     private void Awake()
     {
@@ -56,5 +58,16 @@ public class EventChooseButton : MonoBehaviour,IPointerEnterHandler,IPointerExit
         intelligenceChange = intelligence;
         virtueChange = virtue;
         bodyChange = body;
+<<<<<<< HEAD
+=======
+    }
+
+    public void UpdateChooseInfo(int newIntelligence, int newVirtue, int newBody,string newText)
+    {
+        intelligenceChange = newIntelligence;
+        virtueChange = newVirtue;
+        bodyChange = newBody;
+        buttonText.text = newText;
+>>>>>>> 6162d725ffc1cd009b27901455e6f3e86d791796
     }
 }

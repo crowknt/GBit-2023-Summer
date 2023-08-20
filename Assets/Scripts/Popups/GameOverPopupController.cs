@@ -4,11 +4,18 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+<<<<<<< HEAD
 using UnityEngine.UI;
 
 public class GameOverPopupController : MonoBehaviour
 {
     [SerializeField] private Button buttonReturnToTitle;
+=======
+
+public class GameOverPopupController : MonoBehaviour
+{
+    [SerializeField] private GButton buttonReturnToTitle;
+>>>>>>> 6162d725ffc1cd009b27901455e6f3e86d791796
     [SerializeField] private TextMeshProUGUI conclusion;
     [SerializeField] private string conclusionFormat = "{0}";
     [SerializeField] private string goodIntelligence = "";
@@ -18,7 +25,11 @@ public class GameOverPopupController : MonoBehaviour
 
     private void Start()
     {
+<<<<<<< HEAD
         buttonReturnToTitle.onClick.AddListener(ReturnToTitle);
+=======
+        buttonReturnToTitle.OnClick = ReturnToTitle;
+>>>>>>> 6162d725ffc1cd009b27901455e6f3e86d791796
         ShowConclusion();
     }
 
@@ -47,6 +58,10 @@ public class GameOverPopupController : MonoBehaviour
 
     private void ReturnToTitle()
     {
+<<<<<<< HEAD
+=======
+        SoundManager.StopBackgroundMusic();
+>>>>>>> 6162d725ffc1cd009b27901455e6f3e86d791796
         SceneManager.LoadScene("Title");
     }
 }

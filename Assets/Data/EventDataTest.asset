@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffe6284bb12ee59459278981d90783ca, type: 3}
+  m_Name: EventDataTest
+  m_EditorClassIdentifier: 
+  stageID: 0
+  eventCardInfos:
+  - stageID: 0
+    eventNum: 0
+    image: {fileID: 0}
+    info: "\u6D4B\u8BD5"
+    outcomeInfoL:
+      intelligence: 0
+      virtue: 10
+      body: 10
+      image: {fileID: 0}
+      info: "\u5DE6\u7ED3\u679C"
+      chooseButtonText: yes
+      continueButtonText: "\u4E0B\u4E00\u5929"
+      isEndEvent: 0
+      specialEndText: 
+    outcomeInfoR:
+      intelligence: 5
+      virtue: 0
+      body: 5
+      image: {fileID: 0}
+      info: "\u53F3\u7ED3\u679C"
+      chooseButtonText: no
+      continueButtonText: "\u4E0B\u4E00\u5929"
+      isEndEvent: 0
+      specialEndText: 
+  - stageID: 0
+    eventNum: 0
+    image: {fileID: 0}
+    info: "\u6D4B\u8BD52"
+    outcomeInfoL:
+      intelligence: 0
+      virtue: 10
+      body: 10
+      image: {fileID: 0}
+      info: "\u5DE6\u7ED3\u679C"
+      chooseButtonText: yes
+      continueButtonText: "\u4E0B\u4E00\u5929"
+      isEndEvent: 0
+      specialEndText: 
+    outcomeInfoR:
+      intelligence: 5
+      virtue: 0
+      body: 5
+      image: {fileID: 0}
+      info: "\u53F3\u7ED3\u679C"
+      chooseButtonText: no
+      continueButtonText: "\u4E0B\u4E00\u5929"
+      isEndEvent: 0
+      specialEndText: 
+  - stageID: 0
+    eventNum: 0
+    image: {fileID: 0}
+    info: "\u6D4B\u8BD53"
+    outcomeInfoL:
+      intelligence: 0
+      virtue: 10
+      body: 10
+      image: {fileID: 0}
+      info: "\u5DE6\u7ED3\u679C"
+      chooseButtonText: yes
+      continueButtonText: "\u4E0B\u4E00\u5929"
+      isEndEvent: 0
+      specialEndText: 
+    outcomeInfoR:
+      intelligence: 5
+      virtue: 0
+      body: 5
+      image: {fileID: 0}
+      info: "\u53F3\u7ED3\u679C"
+      chooseButtonText: no
+      continueButtonText: "\u4E0B\u4E00\u5929"
+      isEndEvent: 0
+      specialEndText: 
