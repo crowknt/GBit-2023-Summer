@@ -7,6 +7,8 @@ public class TitleSceneController : MonoBehaviour
     [SerializeField] private Button buttonNewGame;
     [SerializeField] private Button buttonCredits;
     [SerializeField] private Button buttonQuitGame;
+    [SerializeField] private Canvas canvas;
+    [SerializeField] private GameObject creditsPopup;
 
     private void Start()
     {
@@ -22,7 +24,7 @@ public class TitleSceneController : MonoBehaviour
 
     private void ShowCredits()
     {
-        Debug.Log("TODO: Credits");
+        Instantiate(creditsPopup, canvas.transform);
     }
 
     private void QuitGame()
