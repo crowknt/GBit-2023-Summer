@@ -22,7 +22,6 @@ namespace Manager.Stage
 
 
         private EventData.EventCardInfo _curEventCardInfo;
-        private EventCard _currentEvent;
         private int _currentEventIndex = 0;
         private int _remainingEvents = 0;
         private BigEvent.BigEvent _bigEvent;
@@ -34,6 +33,7 @@ namespace Manager.Stage
             EventCenter.Instance.AddListener("NextStage",NextStage);
             EventCenter.Instance.AddListener("CloseTextAbilityStatus",CloseTextAbilityStatus);
             EventCenter.Instance.AddListener("ShowTextAbilityStatus",ShowTextAbilityStatus);
+            EventCenter.Instance.AddListener<string>("SpecialEnd",SmallOutcomeButtonSpecial);
 
             _textualStats = textAbilityStatus.GetComponent<TextualStats>();
         }
@@ -42,14 +42,27 @@ namespace Manager.Stage
         {
             _curEventCardInfo = eventData.eventCardInfos[0];
             _currentEventIndex = 0;
-            _remainingEvents = eventData.eventCardInfos.Count;
+            _remainingEvents = eventData.eventCardInfos.Count - 1;
+            _eventCard.ResetEvent(_curEventCardInfo);
+            EventCenter.Instance.EventTrigger<int>("ShowRemainingDaysOff",_remainingEvents);
             EventCenter.Instance.EventTrigger("ClearHighlights");
             CloseTextAbilityStatus();
         }
 
-        private void NextSmallEvent()
+        public void NextSmallEvent()
         {
-            
+            if (_remainingEvents < 1 || _currentEventIndex == eventData.eventCardInfos.Count)
+            {
+                _eventCard.gameObject.SetActive(false);
+                _bigEvent = Instantiate(bigEvent, transform);
+                return;
+            }
+
+            _currentEventIndex += 1;
+            _curEventCardInfo = eventData.eventCardInfos[_currentEventIndex];
+            _remainingEvents--;
+            _eventCard.ResetEvent(_curEventCardInfo);
+            EventCenter.Instance.EventTrigger<int>("ShowRemainingDaysOff",_remainingEvents);
 
         }
 
@@ -79,6 +92,16 @@ namespace Manager.Stage
         private void CloseTextAbilityStatus()
         {
             textAbilityStatus.SetActive(false);
+        }
+
+        public void SmallOutcomeButton()
+        {
+            
+        }
+
+        public void SmallOutcomeButtonSpecial(string specialText)
+        {
+            
         }
     }
 }

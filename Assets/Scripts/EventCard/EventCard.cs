@@ -53,16 +53,24 @@ public class EventCard : MonoBehaviour
 
     public void OnRightButtonDown()
     {
-        Debug.Log("right button down");
         //todo switch to right outcome
         eventCard.SetActive(false);
         rightOutcome.gameObject.SetActive(true);
     }
 
-    public void ResetEvent(Sprite newImg, string newInfo)
+    public void ResetEvent(EventData.EventCardInfo newInfo)
     {
-        ChangeCardInfo(newImg,newInfo);
+       ChangeCardInfo(newInfo.image,newInfo.info);
+       _leftButtonScript.UpdateChooseInfo(newInfo.outcomeInfoL.intelligence,newInfo.outcomeInfoL.virtue,
+           newInfo.outcomeInfoL.body,newInfo.outcomeInfoL.chooseButtonText);
+       _rightButtonScript.UpdateChooseInfo(newInfo.outcomeInfoR.intelligence,newInfo.outcomeInfoR.virtue,
+           newInfo.outcomeInfoR.body,newInfo.outcomeInfoR.chooseButtonText);
+       
+       
         leftOutcome.gameObject.SetActive(false);
+        leftOutcome.UpdateOutcomeInfo(newInfo.outcomeInfoL);
+        rightOutcome.UpdateOutcomeInfo(newInfo.outcomeInfoR);
+        
         rightOutcome.gameObject.SetActive(false);
         eventCard.SetActive(true);
     }
