@@ -74,7 +74,7 @@ public class EventChooseButton : MonoBehaviour,IPointerEnterHandler,IPointerExit
         //EventCenter.Instance.EventTrigger("ShowTextAbilityStatus");
         //EventCenter.Instance.EventTrigger("ShowTextStatus");
         // _stageManager.smallEventState = StageManager.SmallEventState.Outcome;
-        Debug.Log("选择按钮");
+        //Debug.Log("选择按钮");
         EventCenter.Instance.EventTrigger("ClearHighlights");
         
     }
