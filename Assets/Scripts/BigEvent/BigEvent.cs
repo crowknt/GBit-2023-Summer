@@ -71,20 +71,20 @@ namespace BigEvent
                 abilityData.body < bodyCondition)
             {
                 //不通过
-                yield return FadeOutEffect();
+                yield return StartCoroutine(FadeOutEffect());
 
                 noOutcome.gameObject.SetActive(true);
 
-                yield return noOutcome.FadeInEffect();
+                yield return StartCoroutine(noOutcome.FadeInEffect());
                 noOutcome.RunPrinter();
                 yield break;
             }
 
             //通过
-            yield return FadeOutEffect();
+            yield return StartCoroutine(FadeOutEffect());
 
             yesOutcome.gameObject.SetActive(true);
-            yield return yesOutcome.FadeInEffect();
+            yield return StartCoroutine(yesOutcome.FadeInEffect());
             yesOutcome.RunPrinter();
         }
 

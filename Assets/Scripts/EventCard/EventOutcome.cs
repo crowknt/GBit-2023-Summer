@@ -59,7 +59,7 @@ public class EventOutcome : MonoBehaviour
         if (isSpecial)
         {
             //Debug.Log("特殊事件");
-            yield return FadeOutEffect();
+            yield return StartCoroutine(FadeOutEffect());
             EndEvent(_specialText);
         }
         else
@@ -97,7 +97,7 @@ public class EventOutcome : MonoBehaviour
     private IEnumerator DelayedSwtich()
     {
         yield return new WaitForSeconds(0.2f);
-        yield return FadeOutEffect();
+        yield return StartCoroutine(FadeOutEffect());
         _stageManager.smallEventState = StageManager.SmallEventState.Card;
         EventCenter.Instance.EventTrigger("NextSmallEvent");
     }

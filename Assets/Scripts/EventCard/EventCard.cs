@@ -64,7 +64,7 @@ public class EventCard : MonoBehaviour
 
     private IEnumerator RunOnLeftButtonDown()
     {
-        yield return FadeOutEffect();
+        yield return StartCoroutine(FadeOutEffect());
 
         eventCard.SetActive(false);
         leftOutcome.gameObject.SetActive(true);
@@ -78,7 +78,7 @@ public class EventCard : MonoBehaviour
 
     private IEnumerator RunOnRightButtonDown()
     {
-        yield return FadeOutEffect();
+        yield return StartCoroutine(FadeOutEffect());
 
         eventCard.SetActive(false);
         rightOutcome.gameObject.SetActive(true);

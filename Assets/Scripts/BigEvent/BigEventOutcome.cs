@@ -48,12 +48,12 @@ namespace BigEvent
             if (_isEnd)
             {
                 //todo 呼出结束窗口
-                yield return FadeOutEffect();
+                yield return StartCoroutine(FadeOutEffect());
                 EventCenter.Instance.EventTrigger("NormalEnd");
                 yield break;
             }
 
-            yield return FadeOutEffect();
+            yield return StartCoroutine(FadeOutEffect());
             //todo 下一关
             EventCenter.Instance.EventTrigger("NextStage");
         }

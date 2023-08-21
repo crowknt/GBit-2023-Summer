@@ -102,7 +102,7 @@ namespace Manager.Stage
                 _bigEvent = Instantiate(bigEvent, transform);
                 _bigEvent.UpdateBigEventData(bigEventData);
                 bigEvent.HideOnInstantiate();
-                yield return _bigEvent.FadeInEffect();
+                yield return StartCoroutine(_bigEvent.FadeInEffect());
                 yield break;
             }
 
