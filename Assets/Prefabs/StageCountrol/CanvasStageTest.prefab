@@ -326,7 +326,6 @@ MonoBehaviour:
   gameOverPop: {fileID: 5683286175330723252, guid: 2e5a57ecf21db244dbef57c6e09b04bd, type: 3}
   block: {fileID: 1160964376563983746}
   mainUI: {fileID: 6712273086826381149}
-  smallEventState: 0
 --- !u!1 &7246002333289055596
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,6 +1028,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1132517395465156570, guid: c9fdebac33719b74c92d2511b3f7d394, type: 3}
+      propertyPath: playerAbilityData
+      value: 
+      objectReference: {fileID: 11400000, guid: 7524ebdf77182c741a8ac69e39bd154b, type: 2}
     - target: {fileID: 1604217678081244650, guid: c9fdebac33719b74c92d2511b3f7d394, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

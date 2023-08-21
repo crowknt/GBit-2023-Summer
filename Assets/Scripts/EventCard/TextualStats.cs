@@ -8,12 +8,18 @@ public class TextualStats : MonoBehaviour
     [SerializeField] private TextMeshProUGUI virtueText;
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private string format = "{0:F0}";
+    [SerializeField] private PlayerAbilityData playerAbilityData;
 
     private void Start()
     {
         Intelligence = 0;
         Virtue = 0;
         Health = 0;
+    }
+
+    private void Update()
+    {
+        ChangeText(playerAbilityData.intelligence,playerAbilityData.virtue,playerAbilityData.body);
     }
 
     private float intelligence;
