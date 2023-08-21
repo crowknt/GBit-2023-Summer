@@ -21,7 +21,6 @@ public class EventChooseButton : MonoBehaviour,IPointerEnterHandler,IPointerExit
     {
         _button = GetComponent<Button>();
 
-        Debug.Log("EventChooseButton:Awake");
         _button.onClick.AddListener(OnEventButtonDown);
         _stageManager = GetComponentInParent<StageManager>();
     }

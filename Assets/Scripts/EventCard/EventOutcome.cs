@@ -26,7 +26,6 @@ public class EventOutcome : MonoBehaviour
     private StageManager _stageManager;
     protected virtual void Awake()
     {
-        Debug.Log("EventOutcome:Awake");
         nextButton.onClick.AddListener(OnNextButtonDown);
         // if (stageManager == null)
         // {
