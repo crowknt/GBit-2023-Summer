@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class TitleSceneController : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class TitleSceneController : MonoBehaviour
     [SerializeField] private Canvas canvas;
     [SerializeField] private GameObject creditsPopup;
     [SerializeField] private GameObject helpPopup;
-    [SerializeField] private AudioClip backgroundMusic;
+    [SerializeField] private AudioClip backgroundMusicTitle;
+    [SerializeField] private AudioClip backgroundMusicGame;
     [SerializeField] private PlayerAbilityData playerAbilityData;
     [SerializeField] private string firsetStage;
 
@@ -20,7 +22,7 @@ public class TitleSceneController : MonoBehaviour
         buttonHelp.OnClick = ShowHelp;
         buttonCredits.OnClick = ShowCredits;
         buttonQuitGame.OnClick = QuitGame;
-        SoundManager.SwitchBackgroundMusic(backgroundMusic);
+        SoundManager.SwitchBackgroundMusic(backgroundMusicTitle);
         
     }
 
@@ -30,6 +32,7 @@ public class TitleSceneController : MonoBehaviour
         playerAbilityData.virtue = 0;
         playerAbilityData.body = 0;
         SceneManager.LoadScene(firsetStage);
+        SoundManager.SwitchBackgroundMusic(backgroundMusicGame);
     }
 
     private void ShowHelp()

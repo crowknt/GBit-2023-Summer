@@ -36,6 +36,8 @@ public class EventData : ScriptableObject
       public bool isEndEvent;
 
       [TextArea(3,4)]public string specialEndText = "你阻止了自己出生，赢了太多";
+
+      [Header("特殊背景音乐")] public AudioClip backgroundMusic;
    }
 
    public int stageID = 0;

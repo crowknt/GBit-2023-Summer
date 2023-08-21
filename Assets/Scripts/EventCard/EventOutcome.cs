@@ -16,6 +16,7 @@ public class EventOutcome : MonoBehaviour
     [SerializeField] protected TextMeshProUGUI buttonText;
 
     [SerializeField] private AudioClip clip;
+    private AudioClip backgroundMusic;
     // [SerializeField] protected StageManager stageManager;
     
     [Header("动效")] [SerializeField] private CanvasGroup mainUI;
@@ -39,6 +40,8 @@ public class EventOutcome : MonoBehaviour
     private void OnEnable()
     {
         _stageManager.smallEventState = StageManager.SmallEventState.Outcome;
+        if (backgroundMusic != null)
+            SoundManager.SwitchBackgroundMusic(backgroundMusic);
     }
 
     private void OnDestroy()
@@ -84,6 +87,7 @@ public class EventOutcome : MonoBehaviour
         buttonText.text = newOutcome.continueButtonText;
         // nextButton.onClick.RemoveAllListeners();
         // nextButton.onClick.AddListener(OnNextButtonDown);
+        backgroundMusic = newOutcome.backgroundMusic;
         if (!newOutcome.isEndEvent)
         {
             return;
