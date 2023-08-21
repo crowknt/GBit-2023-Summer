@@ -10,5 +10,6 @@ public abstract class Const
     {
         public const float FadeIn = 0.2f;
         public const float FadeOut = 0.2f;
+        public const float Flip = 0.15f;
     }
 }

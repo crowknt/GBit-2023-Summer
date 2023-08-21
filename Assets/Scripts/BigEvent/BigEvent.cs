@@ -25,6 +25,7 @@ namespace BigEvent
         [Header("数据")] [SerializeField] protected PlayerAbilityData abilityData;
         [SerializeField] private AudioClip clip;
         [Header("动效")] [SerializeField] private CanvasGroup mainUI;
+        [SerializeField] private CardController card;
         
         private BigEventData _bigEventData;
         protected virtual void Awake()
@@ -131,12 +132,15 @@ namespace BigEvent
 
         public IEnumerator FadeInEffect()
         {
-            yield return UIManager.FadeInMainUI();
+            EventCenter.Instance.EventTrigger(Const.Events.ChangeMainUIOpacity, 0f);
+            yield return StartCoroutine(card.FlipOn());
+            yield return StartCoroutine(UIManager.FadeInMainUI());
         }
 
         public IEnumerator FadeOutEffect()
         {
-            yield return UIManager.FadeOutMainUI();
+            yield return StartCoroutine(UIManager.FadeOutMainUI());
+            yield return StartCoroutine(card.FlipOff());
         }
 
         /// <summary>

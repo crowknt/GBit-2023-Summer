@@ -104,6 +104,7 @@ MonoBehaviour:
   abilityData: {fileID: 11400000, guid: 7524ebdf77182c741a8ac69e39bd154b, type: 2}
   clip: {fileID: 8300000, guid: 3a70c0b2f95c008499b1fcd0fed017d0, type: 3}
   mainUI: {fileID: 9143497100793590499}
+  card: {fileID: 580274650689721875}
   printSpeed: 15
 --- !u!1 &6007028972992338530
 GameObject:
@@ -505,6 +506,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f208fa8ee5ed1e468ed5733948d210b, type: 3}
+--- !u!114 &580274650689721875 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2678649697593332034, guid: 2f208fa8ee5ed1e468ed5733948d210b, type: 3}
+  m_PrefabInstance: {fileID: 3252149843669567313}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2df4da93f4d29f43b7acd88351859f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &4920585618714861262 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7595491752566413727, guid: 2f208fa8ee5ed1e468ed5733948d210b, type: 3}

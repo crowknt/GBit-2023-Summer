@@ -21,6 +21,7 @@ public class EventCard : MonoBehaviour
     [SerializeField] private TextMeshProUGUI info;
 
     [Header("动效")] [SerializeField] private CanvasGroup mainUI;
+    [SerializeField] private CardController card;
 
 
     private EventChooseButton _leftButtonScript;
@@ -159,7 +160,9 @@ public class EventCard : MonoBehaviour
         _leftButtonScript.FadeInEffect();
         _rightButtonScript.FadeInEffect();
 
-        yield return UIManager.FadeInMainUI();
+        EventCenter.Instance.EventTrigger(Const.Events.ChangeMainUIOpacity, 0f);
+        yield return StartCoroutine(card.FlipOn());
+        yield return StartCoroutine(UIManager.FadeInMainUI());
 
         PrintText(_printContent, info);
     }
@@ -172,7 +175,8 @@ public class EventCard : MonoBehaviour
         _leftButtonScript.FadeOutEffect();
         _rightButtonScript.FadeOutEffect();
 
-        yield return UIManager.FadeOutMainUI();
+        yield return StartCoroutine(UIManager.FadeOutMainUI());
+        yield return StartCoroutine(card.FlipOff());
     }
 
     /// <summary>

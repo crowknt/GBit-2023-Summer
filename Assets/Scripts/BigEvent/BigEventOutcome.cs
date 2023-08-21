@@ -17,6 +17,7 @@ namespace BigEvent
         [SerializeField] private AudioClip clip;
         
         [Header("动效")] [SerializeField] private CanvasGroup mainUI;
+        [SerializeField] private CardController card;
 
         private bool _isEnd = false;
         
@@ -102,12 +103,15 @@ namespace BigEvent
 
         public IEnumerator FadeInEffect()
         {
-            yield return UIManager.FadeInMainUI();
+            EventCenter.Instance.EventTrigger(Const.Events.ChangeMainUIOpacity, 0f);
+            yield return StartCoroutine(card.FlipOn());
+            yield return StartCoroutine(UIManager.FadeInMainUI());
         }
 
         public IEnumerator FadeOutEffect()
         {
-            yield return UIManager.FadeOutMainUI();
+            yield return StartCoroutine(UIManager.FadeOutMainUI());
+            yield return StartCoroutine(card.FlipOff());
         }
 
         private void ChangeMainUIOpacity(float opacity)

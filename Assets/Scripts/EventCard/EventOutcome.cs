@@ -19,12 +19,14 @@ public class EventOutcome : MonoBehaviour
     // [SerializeField] protected StageManager stageManager;
     
     [Header("动效")] [SerializeField] private CanvasGroup mainUI;
+    [SerializeField] private CardController card;
 
     private bool isSpecial = false;
     private string _specialText = "";
     private StageManager _stageManager;
     protected virtual void Awake()
     {
+        Debug.Log("EventOutcome:Awake");
         nextButton.onClick.AddListener(OnNextButtonDown);
         // if (stageManager == null)
         // {
@@ -94,13 +96,10 @@ public class EventOutcome : MonoBehaviour
 
     private IEnumerator DelayedSwtich()
     {
-        
-        
         yield return new WaitForSeconds(0.2f);
         yield return FadeOutEffect();
         _stageManager.smallEventState = StageManager.SmallEventState.Card;
         EventCenter.Instance.EventTrigger("NextSmallEvent");
-       
     }
     
     [Header("打字特效")] [SerializeField] private float printSpeed = 15;
@@ -136,7 +135,9 @@ public class EventOutcome : MonoBehaviour
     /// </summary>
     public IEnumerator FadeInEffect()
     {
-        yield return UIManager.FadeInMainUI();
+        EventCenter.Instance.EventTrigger(Const.Events.ChangeMainUIOpacity, 0f);
+        yield return StartCoroutine(card.FlipOn());
+        yield return StartCoroutine(UIManager.FadeInMainUI());
 
         RunPrinter();
     }
@@ -146,7 +147,8 @@ public class EventOutcome : MonoBehaviour
     /// </summary>
     public IEnumerator FadeOutEffect()
     {
-        yield return UIManager.FadeOutMainUI();
+        yield return StartCoroutine(UIManager.FadeOutMainUI());
+        yield return StartCoroutine(card.FlipOff());
     }
 
     private void ChangeMainUIOpacity(float opacity)

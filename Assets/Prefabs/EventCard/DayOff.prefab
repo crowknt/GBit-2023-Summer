@@ -60,6 +60,7 @@ MonoBehaviour:
   image: {fileID: 2866455295115665775}
   info: {fileID: 4061053119564774319}
   mainUI: {fileID: 6581222471417074552}
+  card: {fileID: 4810788457629647099}
   printSpeed: 15
 --- !u!1 &7696023413452812882
 GameObject:
@@ -839,6 +840,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4810788457629647099 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2678649697593332034, guid: 2f208fa8ee5ed1e468ed5733948d210b, type: 3}
+  m_PrefabInstance: {fileID: 7489243360655479225}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2df4da93f4d29f43b7acd88351859f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &8953202546434399518

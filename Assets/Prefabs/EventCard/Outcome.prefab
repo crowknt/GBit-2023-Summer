@@ -97,6 +97,7 @@ MonoBehaviour:
   buttonText: {fileID: 4482103480344817903}
   clip: {fileID: 0}
   mainUI: {fileID: 8860768015898688882}
+  card: {fileID: 602001669057984473}
   printSpeed: 15
 --- !u!1 &5201972016577089614
 GameObject:
@@ -237,6 +238,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f208fa8ee5ed1e468ed5733948d210b, type: 3}
+--- !u!114 &602001669057984473 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2678649697593332034, guid: 2f208fa8ee5ed1e468ed5733948d210b, type: 3}
+  m_PrefabInstance: {fileID: 3276022250153092763}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2df4da93f4d29f43b7acd88351859f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &4908465512998502148 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7595491752566413727, guid: 2f208fa8ee5ed1e468ed5733948d210b, type: 3}
