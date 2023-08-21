@@ -28,6 +28,7 @@ MonoBehaviour:
       continueButtonText: "\u8FDB\u5165\u4E0B\u4E00\u4E2A\u4F11\u606F\u65E5"
       isEndEvent: 0
       specialEndText: 
+      backgroundMusic: {fileID: 0}
     outcomeInfoR:
       intelligence: 10
       virtue: 0
@@ -38,6 +39,7 @@ MonoBehaviour:
       continueButtonText: "\u8FDB\u5165\u4E0B\u4E00\u4E2A\u4F11\u606F\u65E5"
       isEndEvent: 0
       specialEndText: 
+      backgroundMusic: {fileID: 0}
   - stageID: 1
     eventNum: 2
     image: {fileID: 21300000, guid: 2bb57e76973789040a1632e151304e8b, type: 3}
@@ -52,6 +54,7 @@ MonoBehaviour:
       continueButtonText: "\u67E5\u770B\u4EBA\u751F\u603B\u7ED3"
       isEndEvent: 1
       specialEndText: "\u4F60\u88AB\u8DEF\u8FC7\u7684\u5361\u8F66\u521B\u4E86\uFF0C\u7ECF\u8FC7\u533B\u751F\u4E00\u5929\u4E00\u591C\u7684\u62A2\u6551\uFF0C\u4F60\u7EC8\u4E8E\u5728\u7B2C\u4E8C\u5929\u5DE5\u4F5C\u65E5\u6492\u624B\u4EBA\u5BF0\uFF0C\u4F46\u4E0D\u77E5\u9053\u4E3A\u4EC0\u4E48\u4F60\u7684\u610F\u8BC6\u5374\u5728\u53E6\u4E00\u4E2A\u5730\u65B9\u9192\u6765"
+      backgroundMusic: {fileID: 0}
     outcomeInfoR:
       intelligence: 5
       virtue: -5
@@ -62,6 +65,7 @@ MonoBehaviour:
       continueButtonText: "\u8FDB\u5165\u4E0B\u4E00\u4E2A\u4F11\u606F\u65E5"
       isEndEvent: 0
       specialEndText: 
+      backgroundMusic: {fileID: 0}
   - stageID: 2
     eventNum: 2
     image: {fileID: 21300000, guid: 1017e4c9a5e75364490650f9c6a58127, type: 3}
@@ -72,10 +76,11 @@ MonoBehaviour:
       body: 5
       image: {fileID: 21300000, guid: 2bb57e76973789040a1632e151304e8b, type: 3}
       info: "\u4F60\u4E0D\u65AD\u542C\u5230\u62BD\u5C49\u91CC\u4F20\u6765\u5947\u602A\u7684\u8BF4\u8BDD\u58F0\uFF0C\u7B2C\u4E8C\u5929\u5DE5\u4F5C\u65E5\u4F60\u653E\u5B66\u56DE\u5230\u5BB6\u91CC\uFF0C\u542C\u5230\u62BD\u5C49\u91CC\u4F20\u6765\u4E00\u53E5\u201C\u5C0F\u592B\uFF0C\u6211\u8981\u8FDB\u6765\u4E86\u201D"
-      chooseButtonText: "\u6253\u5F00\u770B\u770B"
+      chooseButtonText: "\u4E0D\u53BB\u7BA1\u5B83"
       continueButtonText: "\u8FDB\u5165\u4E0B\u4E00\u4E2A\u4F11\u606F\u65E5"
       isEndEvent: 0
       specialEndText: 
+      backgroundMusic: {fileID: 0}
     outcomeInfoR:
       intelligence: 20
       virtue: 0
@@ -86,6 +91,7 @@ MonoBehaviour:
       continueButtonText: "\u8FDB\u5165\u4E0B\u4E00\u4E2A\u4F11\u606F\u65E5"
       isEndEvent: 0
       specialEndText: 
+      backgroundMusic: {fileID: 0}
   - stageID: 2
     eventNum: 3
     image: {fileID: 21300000, guid: 61e1afbba5e0b1a4bbe0c1af6517212e, type: 3}
@@ -100,6 +106,7 @@ MonoBehaviour:
       continueButtonText: "\u8FDB\u5165\u4E0B\u4E00\u4E2A\u4F11\u606F\u65E5"
       isEndEvent: 0
       specialEndText: 
+      backgroundMusic: {fileID: 0}
     outcomeInfoR:
       intelligence: -5
       virtue: 0
@@ -110,3 +117,4 @@ MonoBehaviour:
       continueButtonText: "\u8FDB\u5165\u4E0B\u4E00\u4E2A\u4F11\u606F\u65E5"
       isEndEvent: 0
       specialEndText: 
+      backgroundMusic: {fileID: 0}

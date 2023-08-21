@@ -71,7 +71,7 @@ public class EventOutcome : MonoBehaviour
         }
         else
         {
-            Debug.Log("结束按钮");
+            //Debug.Log("结束按钮");
             StartCoroutine(DelayedSwtich());
 
             //EventCenter.Instance.EventTrigger("CloseTextAbilityStatus");
@@ -90,6 +90,7 @@ public class EventOutcome : MonoBehaviour
         backgroundMusic = newOutcome.backgroundMusic;
         if (!newOutcome.isEndEvent)
         {
+            isSpecial = newOutcome.isEndEvent;
             return;
         }
        
