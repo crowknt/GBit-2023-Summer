@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Manager;
+using Manager.Stage;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,12 +29,14 @@ namespace BigEvent
         [SerializeField] private CardController card;
         
         private BigEventData _bigEventData;
+        private StageManager _stageManager;
         protected virtual void Awake()
         {
             if (checkButton.onClick.GetPersistentEventCount() == 0)
             {
                 checkButton.onClick.AddListener(OnCheckButton);
             }
+            _stageManager = GetComponentInParent<StageManager>();
 
             EventCenter.Instance.AddListener<float>(Const.Events.ChangeMainUIOpacity, ChangeMainUIOpacity);
         }
@@ -43,7 +46,7 @@ namespace BigEvent
             bigEvent.SetActive(true);
             yesOutcome.gameObject.SetActive(false);
             noOutcome.gameObject.SetActive(false);
-            
+            _stageManager.smallEventState = StageManager.SmallEventState.BigEvent;
         }
 
         private void OnDestroy()

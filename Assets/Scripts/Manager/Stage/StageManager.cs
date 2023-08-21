@@ -44,8 +44,28 @@ namespace Manager.Stage
             BigEvent
         }
 
-        [Header("事件卡状态")]
-        public SmallEventState smallEventState = SmallEventState.Card;
+
+        private SmallEventState _smallEventState = SmallEventState.Card;
+
+        public SmallEventState smallEventState
+        {
+            get => _smallEventState;
+            set
+            {
+                _smallEventState = value;
+                switch (value)
+                {
+                    case SmallEventState.Card:
+                        CloseTextAbilityStatus();
+                        break;
+                    case SmallEventState.Outcome:
+                    case SmallEventState.BigEvent:
+                        ShowTextAbilityStatus();
+                        break;
+                }
+            }
+        }
+
         //private TextualStats _textStatus;
         private void Awake()
         {
@@ -74,19 +94,6 @@ namespace Manager.Stage
             EventCenter.Instance.EventTrigger<int>("ShowRemainingDaysOff",_remainingEvents);
             EventCenter.Instance.EventTrigger("ClearHighlights");
             CloseTextAbilityStatus();
-        }
-
-        private void Update()
-        {
-            switch (smallEventState)
-            {
-                case SmallEventState.Card:
-                    CloseTextAbilityStatus();
-                    break;
-                case SmallEventState.Outcome:
-                    ShowTextAbilityStatus();
-                    break;
-            }
         }
 
         public void NextSmallEvent()

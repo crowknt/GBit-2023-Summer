@@ -73,7 +73,7 @@ public class EventChooseButton : MonoBehaviour,IPointerEnterHandler,IPointerExit
         EventCenter.Instance.EventTrigger("ShowWeekday");
         //EventCenter.Instance.EventTrigger("ShowTextAbilityStatus");
         //EventCenter.Instance.EventTrigger("ShowTextStatus");
-        _stageManager.smallEventState = StageManager.SmallEventState.Outcome;
+        // _stageManager.smallEventState = StageManager.SmallEventState.Outcome;
         Debug.Log("选择按钮");
         EventCenter.Instance.EventTrigger("ClearHighlights");
         

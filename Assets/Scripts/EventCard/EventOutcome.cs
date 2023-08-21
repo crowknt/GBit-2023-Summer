@@ -36,6 +36,11 @@ public class EventOutcome : MonoBehaviour
         EventCenter.Instance.AddListener<float>(Const.Events.ChangeMainUIOpacity, ChangeMainUIOpacity);
     }
 
+    private void OnEnable()
+    {
+        _stageManager.smallEventState = StageManager.SmallEventState.Outcome;
+    }
+
     private void OnDestroy()
     {
         EventCenter.Instance.RemoveEventListener<float>(Const.Events.ChangeMainUIOpacity, ChangeMainUIOpacity);
