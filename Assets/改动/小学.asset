@@ -59,7 +59,7 @@ MonoBehaviour:
       intelligence: 10
       virtue: -5
       body: -5
-      image: {fileID: 21300000, guid: cda037095355031439fe54e54dc7f3b4, type: 3}
+      image: {fileID: 21300000, guid: 2bb57e76973789040a1632e151304e8b, type: 3}
       info: "\u4F60\u5728\u5BB6\u8BA4\u771F\u770B\u4E66\uFF0C\u5374\u53D1\u73B0\u6C99\u53D1\u5E95\u6709\u672C\u5947\u602A\u7684\u4E66\u7C4D\uFF0C\u4E0A\u9762\u5370\u7740\u4E00\u4E2A\u6F02\u4EAE\u7684\u5927\u59D0\u59D0\uFF0C\u51FA\u4E8E\u597D\u5947\u4F60\u8BFB\u4E86\u8BFB"
       chooseButtonText: "\u53BB\u8BFB\u4E66"
       continueButtonText: "\u8FDB\u5165\u4E0B\u4E00\u4E2A\u4F11\u606F\u65E5"
@@ -112,7 +112,7 @@ MonoBehaviour:
       virtue: 0
       body: 0
       image: {fileID: 21300000, guid: 866caa39703230f4889d11cc25969025, type: 3}
-      info: "\u5728\u7B2C\u4E8C\u5929\u4F60\u770B\u5230\u6709\u540D\u7684\u9AD8\u4E2D\u751F\u4FA6\u63A2\u9057\u61BE\u91CC\u662F\u7684\u65B0\u95FB\uFF0C\u4F60\u611F\u53F9\u4E16\u6001\u708E\u51C9"
+      info: "\u5728\u7B2C\u4E8C\u5929\u4F60\u770B\u5230\u6709\u540D\u7684\u9AD8\u4E2D\u751F\u4FA6\u63A2\u9057\u61BE\u79BB\u4E16\u7684\u65B0\u95FB\uFF0C\u4F60\u611F\u53F9\u4E16\u6001\u708E\u51C9"
       chooseButtonText: "\u8F6C\u8EAB\u79BB\u5F00"
       continueButtonText: "\u8FDB\u5165\u4E0B\u4E00\u4E2A\u4F11\u606F\u65E5"
       isEndEvent: 0
