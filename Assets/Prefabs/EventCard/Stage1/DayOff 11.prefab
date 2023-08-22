@@ -142,7 +142,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Next
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2c505924e089392429965ea4f298d818, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1525555270723710689
@@ -276,8 +276,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Right
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2c505924e089392429965ea4f298d818, type: 2}
+  m_sharedMaterial: {fileID: -1163260944111018309, guid: 2c505924e089392429965ea4f298d818, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -410,7 +410,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: outcome right
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2c505924e089392429965ea4f298d818, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -474,7 +474,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &2332020026456347557
@@ -542,10 +542,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Test Event info
+  m_text: "\u5728\u8FD9\u4E2A\u5E73\u5E73\u65E0\u5947\u7684\u4F11\u606F\u65E5\uFF0C\u4F60\u5728\u60F3\u4F60\u662F\u8DDF\u7740\u5988\u5988\u53BB\u516C\u56ED\uFF0C\u8FD8\u662F\u8DDF\u7740\u7238\u7238\u53BB\u9493\u9C7C"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2c505924e089392429965ea4f298d818, type: 2}
+  m_sharedMaterial: {fileID: -1163260944111018309, guid: 2c505924e089392429965ea4f298d818, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -676,10 +676,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Left
+  m_text: "\u4F60\u51B3\u5B9A\u79BB\u5F00\u662F\u975E\u4E4B\u5730"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2c505924e089392429965ea4f298d818, type: 2}
+  m_sharedMaterial: {fileID: -1163260944111018309, guid: 2c505924e089392429965ea4f298d818, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -893,6 +893,12 @@ MonoBehaviour:
   rightOutcome: {fileID: 4282260748790707062}
   leftButton: {fileID: 5240356036022272333}
   rightButton: {fileID: 780012329140144053}
+  leftIntelligence: 10
+  leftVirtue: 5
+  leftBody: -5
+  rightIntelligence: 0
+  rightVirtue: 5
+  rightBody: 10
 --- !u!1 &7152564349093687736
 GameObject:
   m_ObjectHideFlags: 0
@@ -905,7 +911,6 @@ GameObject:
   - component: {fileID: 5161387913429044895}
   - component: {fileID: 4710385879387503093}
   - component: {fileID: 4764186611627126505}
-  - component: {fileID: 8444076243499064854}
   m_Layer: 5
   m_Name: Right_Next
   m_TagString: Untagged
@@ -1015,21 +1020,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8444076243499064854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7152564349093687736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f4c99141cb73d74c84d42e98cb24399, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  intelligenceChange: 0
-  virtueChange: 0
-  bodyChange: 0
 --- !u!1 &7411624508582656578
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,7 +1058,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -750, y: 0}
-  m_SizeDelta: {x: 160, y: 80}
+  m_SizeDelta: {x: 250, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1506598309210301120
 CanvasRenderer:
@@ -1164,9 +1154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f4c99141cb73d74c84d42e98cb24399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intelligenceChange: 0
-  virtueChange: 0
-  bodyChange: 0
 --- !u!1 &7574173617192430128
 GameObject:
   m_ObjectHideFlags: 0
@@ -1280,7 +1267,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 750, y: 0}
-  m_SizeDelta: {x: 160, y: 80}
+  m_SizeDelta: {x: 250, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5683062211517222338
 CanvasRenderer:
@@ -1376,9 +1363,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f4c99141cb73d74c84d42e98cb24399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intelligenceChange: 0
-  virtueChange: 0
-  bodyChange: 0
 --- !u!1 &8831065024193176408
 GameObject:
   m_ObjectHideFlags: 0
@@ -1550,7 +1534,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 433561374641368168, guid: d303d9c3235cc4943a1907eac0950500, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

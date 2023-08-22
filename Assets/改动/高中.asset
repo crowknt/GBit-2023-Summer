@@ -1,0 +1,120 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffe6284bb12ee59459278981d90783ca, type: 3}
+  m_Name: "\u9AD8\u4E2D"
+  m_EditorClassIdentifier: 
+  stageID: 3
+  eventCardInfos:
+  - stageID: 0
+    eventNum: 2
+    image: {fileID: 21300000, guid: 1017e4c9a5e75364490650f9c6a58127, type: 3}
+    info: "\u8FD9\u662F\u4F60\u9AD8\u4E2D\u91CC\u67D0\u4E2A\u5FD9\u91CC\u5077\u95F2\u7684\u4F11\u606F\u65E5\uFF0C\u4F60\u5728\u72B9\u8C6B\u662F\u7EA6\u65B0\u670B\u53CB\u51FA\u53BB\u73A9\uFF0C\u8FD8\u662F\u5B85\u5728\u5BB6\u91CC"
+    outcomeInfoL:
+      intelligence: -5
+      virtue: -5
+      body: -5
+      image: {fileID: 21300000, guid: 2bb57e76973789040a1632e151304e8b, type: 3}
+      info: "\u4F60\u542F\u52A8\u4E86O\u795E"
+      chooseButtonText: "\u5B85\u5728\u5BB6\u91CC"
+      continueButtonText: "\u8FDB\u5165\u4E0B\u4E00\u4E2A\u4F11\u606F\u65E5"
+      isEndEvent: 0
+      specialEndText: 
+      backgroundMusic: {fileID: 0}
+    outcomeInfoR:
+      intelligence: -10
+      virtue: 5
+      body: -5
+      image: {fileID: 21300000, guid: 4fbe3c81cd6f6ec4c90f994165da1195, type: 3}
+      info: "\u4F60\u548C\u670B\u53CB\u5728\u5916\u9762\u4E00\u8D77\u542F\u52A8\u4E86O\u795E"
+      chooseButtonText: "\u51FA\u53BB\u73A9"
+      continueButtonText: "\u8FDB\u5165\u4E0B\u4E00\u4E2A\u4F11\u606F\u65E5"
+      isEndEvent: 0
+      specialEndText: 
+      backgroundMusic: {fileID: 0}
+  - stageID: 1
+    eventNum: 2
+    image: {fileID: 21300000, guid: 789edaab30027e844856e797c260ae51, type: 3}
+    info: "\u8FD9\u662F\u4F60\u9AD8\u4E2D\u91CC\u67D0\u4E2A\u5FD9\u91CC\u5077\u95F2\u7684\u4F11\u606F\u65E5\uFF0C\u4F60\u5728\u5927\u8857\u4E0A\u8D70\u7740\uFF0C\u7A81\u7136\u4E00\u4E2A\u8138\u4E0A\u8D34\u7740\u72D7\u76AE\u818F\u836F\u7684\u95EE\u4F60\uFF0C\u8981\u4E0D\u8981\u7B97\u4E00\u5366"
+    outcomeInfoL:
+      intelligence: 10
+      virtue: -5
+      body: 0
+      image: {fileID: 21300000, guid: 1017e4c9a5e75364490650f9c6a58127, type: 3}
+      info: "\u4ED6\u8BF4\u6211\u770B\u4F60\u4EBA\u4E2D\u53D1\u9ED1\uFF0C\u4F53\u6001\u865A\u5F31\uFF0C\u53EF\u80FD\u547D\u4E0D\u4E45\u77E3\u3002\u4F60\u542C\u5230\u8FD9\u91CC\u8FDE\u5FD9\u53CD\u51FB\u95EE\u5019\u4E86\u8FD9\u4E2A\u90CE\u4E2D\u7684\u6BCD\u4EB2"
+      chooseButtonText: "\u7B97\u4E00\u5366"
+      continueButtonText: "\u8FDB\u5165\u4E0B\u4E00\u4E2A\u4F11\u606F\u65E5"
+      isEndEvent: 0
+      specialEndText: 
+      backgroundMusic: {fileID: 0}
+    outcomeInfoR:
+      intelligence: 5
+      virtue: 0
+      body: 0
+      image: {fileID: 21300000, guid: d57c0ee95d301db47b099168ffcd37b7, type: 3}
+      info: "\u4F60\u8FDE\u5FD9\u8D70\u5F00\u4E86\u3002\u7B2C\u4E8C\u5929\u5DE5\u4F5C\u65E5\u7ECF\u8FC7\u8FD9\u91CC\u53D1\u73B0\u8FD9\u4E2A\u6C5F\u6E56\u90CE\u4E2D\u539F\u6765\u53EA\u662F\u8857\u8FB9\u7684\u4E00\u4E2A\u6D41\u6D6A\u6C49\u75AF\u5B50"
+      chooseButtonText: "\u8D70\u5F00"
+      continueButtonText: "\u8FDB\u5165\u4E0B\u4E00\u4E2A\u4F11\u606F\u65E5"
+      isEndEvent: 0
+      specialEndText: 
+      backgroundMusic: {fileID: 0}
+  - stageID: 2
+    eventNum: 2
+    image: {fileID: 21300000, guid: 1017e4c9a5e75364490650f9c6a58127, type: 3}
+    info: "\u8FD9\u662F\u4F60\u9AD8\u4E2D\u91CC\u67D0\u4E2A\u5FD9\u91CC\u5077\u95F2\u7684\u4F11\u606F\u65E5\uFF0C\u4F60\u72EC\u5750\u5BB6\u4E2D\uFF0C\u51B3\u5B9A\u627E\u70B9\u4E8B\u5E72\uFF0C\u4F60\u5728\u72B9\u8C6B\u662F\u7EC3\u7434\u8FD8\u662F\u5B66\u4E60"
+    outcomeInfoL:
+      intelligence: 0
+      virtue: 5
+      body: 0
+      image: {fileID: 21300000, guid: 1017e4c9a5e75364490650f9c6a58127, type: 3}
+      info: "\u4F60\u628A\u7EC3\u7434\u89C6\u9891\u53D1\u5230p\u7AD9\u4E0A\uFF0C\u4E0D\u4E00\u4F1A\u540D\u4E3A\u201C\u5409\u4ED6\u82F1\u96C4\u201D\u7684\u8D26\u53F7\u4E0B\u53C8\u65B0\u589E\u4E86\u51E0\u4E2A\u7C89\u4E1D"
+      chooseButtonText: "\u7EC3\u7434"
+      continueButtonText: "\u8FDB\u5165\u4E0B\u4E00\u4E2A\u4F11\u606F\u65E5"
+      isEndEvent: 0
+      specialEndText: 
+      backgroundMusic: {fileID: 0}
+    outcomeInfoR:
+      intelligence: 10
+      virtue: 0
+      body: -5
+      image: {fileID: 21300000, guid: 2bb57e76973789040a1632e151304e8b, type: 3}
+      info: "\u4F60\u5446\u5750\u5BB6\u4E2D\u5B66\u4E60\uFF0C\u4F60\u4EFF\u4F5B\u609F\u9053\u4E86\u4EBA\u751F\u7684\u771F\u8C1B"
+      chooseButtonText: "\u5B66\u4E60"
+      continueButtonText: "\u8FDB\u5165\u4E0B\u4E00\u4E2A\u4F11\u606F\u65E5"
+      isEndEvent: 0
+      specialEndText: 
+      backgroundMusic: {fileID: 0}
+  - stageID: 3
+    eventNum: 2
+    image: {fileID: 21300000, guid: 1017e4c9a5e75364490650f9c6a58127, type: 3}
+    info: "\u8FD9\u662F\u4F60\u9AD8\u4E2D\u91CC\u67D0\u4E2A\u5FD9\u91CC\u5077\u95F2\u7684\u4F11\u606F\u65E5\uFF0C\u4F60\u72EC\u5750\u5BB6\u4E2D\u601D\u8003\u4EBA\u751F\u7684\u771F\u7406\uFF0C\u4F60\u5F85\u4F1A\u662F\u53BB\u5403M\u8BB0\u597D\u5462\u8FD8\u662F\u53BB\u5403K\u8BB0\u597D\u5462"
+    outcomeInfoL:
+      intelligence: 10
+      virtue: 10
+      body: -10
+      image: {fileID: 21300000, guid: 4fbe3c81cd6f6ec4c90f994165da1195, type: 3}
+      info: "\u4F60\u53D1\u73B0\u4ECA\u5929M\u8BB0\u53C8\u51FA\u4E86\u65B0\u54C1\uFF0C\u4F60\u89C9\u5F97\u6B64\u884C\u4E0D\u4E8F"
+      chooseButtonText: "M\u8BB0"
+      continueButtonText: "\u8FDB\u5165\u4E0B\u4E00\u4E2A\u4F11\u606F\u65E5"
+      isEndEvent: 0
+      specialEndText: 
+      backgroundMusic: {fileID: 0}
+    outcomeInfoR:
+      intelligence: 10
+      virtue: 0
+      body: 10
+      image: {fileID: 21300000, guid: d57c0ee95d301db47b099168ffcd37b7, type: 3}
+      info: "\u4F60\u9057\u61BE\u7684\u53D1\u73B0\u4ECA\u5929\u4E0D\u662F\u661F\u671F\u56DB"
+      chooseButtonText: "K\u8BB0"
+      continueButtonText: "\u8FDB\u5165\u4E0B\u4E00\u4E2A\u4F11\u606F\u65E5"
+      isEndEvent: 0
+      specialEndText: 
+      backgroundMusic: {fileID: 0}
